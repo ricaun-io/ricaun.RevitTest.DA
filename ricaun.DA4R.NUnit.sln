@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{0E7495B5-F467-4591-906E-D3B0100A4933}") = "ricaun.DA4R.NUnit", "ricaun.DA4R.NUnit\ricaun.DA4R.NUnit.csproj", "{6AFAFB38-74EC-4D31-B84C-AAA4C0A1ECB9}"
+EndProject
+Project("{0E7495B5-F467-4591-906E-D3B0100A4933}") = "Build", "Build\Build.csproj", "{071ED911-9F86-4D2A-BEEF-96F106057DB4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{A525896D-64B9-43CA-9D82-E0E37E51DE40}"
+	ProjectSection(SolutionItems) = preProject
+		CHANGELOG.md = CHANGELOG.md
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6AFAFB38-74EC-4D31-B84C-AAA4C0A1ECB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AFAFB38-74EC-4D31-B84C-AAA4C0A1ECB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AFAFB38-74EC-4D31-B84C-AAA4C0A1ECB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AFAFB38-74EC-4D31-B84C-AAA4C0A1ECB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{071ED911-9F86-4D2A-BEEF-96F106057DB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{071ED911-9F86-4D2A-BEEF-96F106057DB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
