@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace ricaun.DA4R.NUnit.Extensions
 {
+    /// <summary>
+    /// ZipExtension
+    /// </summary>
     public static class ZipExtension
     {
         /// <summary>
@@ -22,8 +25,19 @@ namespace ricaun.DA4R.NUnit.Extensions
             var zipDirectory = Path.GetDirectoryName(zipFile);
             zipDestination = Path.Combine(zipDirectory, zipName);
 
-            if (!Directory.Exists(zipDestination))
-                Directory.CreateDirectory(zipDestination);
+            if (Directory.Exists(zipDestination))
+            {
+                try
+                {
+                    Directory.Delete(zipDestination, true);
+                }
+                catch { }
+            }
+
+            if (Directory.Exists(zipDestination))
+                return true;
+
+            Directory.CreateDirectory(zipDestination);
 
             try
             {

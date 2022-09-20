@@ -1,21 +1,24 @@
 ﻿using Newtonsoft.Json;
+using ricaun.NUnit.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ricaun.DA4R.NUnit.Models
 {
     public class OutputModel
     {
+
         public string VersionName { get; set; }
         public string VersionBuild { get; set; }
-        public DateTime DateTime { get; set; } = DateTime.UtcNow;
-        public List<object> Tests { get; set; } = new List<object>();
+        public DateTime TimeStart { get; set; } = DateTime.UtcNow;
+        public DateTime TimeFinish { get; set; }
+        public List<TestAssemblyModel> Tests { get; set; } = new List<TestAssemblyModel>();
 
-        public OutputModel Load(string jsonPath = "output.json")
+        #region JsonConvert
+        private const string JSON_FILE = "output.json";
+        public OutputModel Load(string jsonPath = JSON_FILE)
         {
             if (File.Exists(jsonPath))
             {
@@ -25,7 +28,7 @@ namespace ricaun.DA4R.NUnit.Models
             return this;
         }
 
-        public string Save(string jsonPath = "output.json")
+        public string Save(string jsonPath = JSON_FILE)
         {
             string text = JsonConvert.SerializeObject(this);
             using (StreamWriter sw = File.CreateText(jsonPath))
@@ -35,5 +38,6 @@ namespace ricaun.DA4R.NUnit.Models
             }
             return text;
         }
+        #endregion
     }
 }

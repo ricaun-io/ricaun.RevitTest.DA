@@ -137,7 +137,7 @@
   <ItemGroup Condition="$(Configuration.Contains('Debug'))">
     <PackageReference Include="ricaun.Revit.UI" Version="*" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>

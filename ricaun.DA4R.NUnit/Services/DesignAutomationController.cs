@@ -22,15 +22,15 @@ namespace ricaun.DA4R.NUnit.Services
 
             output.VersionName = application.VersionName;
             output.VersionBuild = application.VersionBuild;
+            output.TimeStart = DateTime.UtcNow;
 
             UnZipAndTestFiles(application, output);
+
+            output.TimeFinish = DateTime.UtcNow;
 
             var text = output.Save();
             Console.WriteLine(text);
 
-#if DEBUG
-            System.Windows.MessageBox.Show(text);
-#endif
 
             return true;
         }
@@ -43,21 +43,22 @@ namespace ricaun.DA4R.NUnit.Services
             {
                 if (ZipExtension.ExtractToFolder(zipFile, out string zipDestination))
                 {
+                    Console.WriteLine($"Test Unzip: {Path.GetFileName(zipFile)}");
                     foreach (var versionDirectory in Directory.GetDirectories(zipDestination))
                     {
                         if (Path.GetFileName(versionDirectory).Equals(versionNumber))
                         {
                             Console.WriteLine($"Test VersionNumber: {versionNumber}");
-                            TestDirectory(application, output, versionDirectory);
+                            TestDirectory(output, versionDirectory);
+                            return;
                         }
                     }
-
-                    TestDirectory(application, output, zipDestination);
+                    TestDirectory(output, zipDestination);
                 }
             }
         }
 
-        private static void TestDirectory(Application application, OutputModel output, string directory)
+        private static void TestDirectory(OutputModel output, string directory)
         {
             foreach (var filePath in Directory.GetFiles(directory, "*.dll"))
             {
@@ -67,18 +68,25 @@ namespace ricaun.DA4R.NUnit.Services
                 {
                     if (TestEngine.ContainNUnit(filePath))
                     {
+                        Console.WriteLine("--------------------------------------------------");
+                        foreach (var parameter in RevitParameters.Parameters)
+                        {
+                            Console.WriteLine($"RevitParameters: {parameter}");
+                        }
+                        Console.WriteLine("--------------------------------------------------");
+
                         var modelTest = TestEngine.TestAssembly(
                             filePath,
-                            application,
-                            application.GetControlledApplication());
+                            RevitParameters.Parameters);
 
                         output.Tests.Add(modelTest);
                     }
 
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    output.Tests.Add(fileName);
+                    Console.WriteLine(ex);
+                    // output.Tests.Add(fileName);
                 }
             }
         }

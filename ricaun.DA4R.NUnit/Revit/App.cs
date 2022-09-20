@@ -10,6 +10,11 @@ namespace ricaun.DA4R.NUnit.Revit
     {
         public ExternalDBApplicationResult OnStartup(ControlledApplication application)
         {
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine(this.GetType().Assembly.FullName);
+            Console.WriteLine("--------------------------------------------------");
+
+            RevitParameters.AddParameter(application, application.GetApplication());
             DesignAutomationBridge.DesignAutomationReadyEvent += DesignAutomationBridge_DesignAutomationReadyEvent;
             return ExternalDBApplicationResult.Succeeded;
         }
@@ -23,7 +28,10 @@ namespace ricaun.DA4R.NUnit.Revit
         private void DesignAutomationBridge_DesignAutomationReadyEvent(object sender, DesignAutomationReadyEventArgs e)
         {
             var data = e.DesignAutomationData;
+            Console.WriteLine("--------------------------------------------------");
             Console.WriteLine($"RevitApp: {data.RevitApp} FilePath: {data.FilePath} RevitDoc: {data.RevitDoc}");
+            Console.WriteLine($"RevitNET: {data.RevitApp.GetType().Assembly.FullName}");
+            Console.WriteLine("--------------------------------------------------");
             e.Succeeded = DesignAutomationController.Execute(data.RevitApp, data.FilePath, data.RevitDoc);
         }
     }
