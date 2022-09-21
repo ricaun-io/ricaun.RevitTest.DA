@@ -22,6 +22,9 @@ namespace ricaun.DA4R.NUnit.Extensions
         public static bool ExtractToFolder(string zipFile, out string zipDestination)
         {
             var zipName = Path.GetFileNameWithoutExtension(zipFile);
+#if DEBUG
+            zipName = $"Temp_{DateTime.Now.Ticks}";
+#endif
             var zipDirectory = Path.GetDirectoryName(zipFile);
             zipDestination = Path.Combine(zipDirectory, zipName);
 

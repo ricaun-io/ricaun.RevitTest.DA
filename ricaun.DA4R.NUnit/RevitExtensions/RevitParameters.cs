@@ -54,6 +54,8 @@ namespace Autodesk.Revit.DB
                     var list = new List<object>();
                     list.Add(Autodesk.Revit.UI.RevitApplication.UIApplication);
                     list.Add(Autodesk.Revit.UI.RevitApplication.UIControlledApplication);
+                    list.Add(Autodesk.Revit.UI.RevitDBApplication.Application);
+                    list.Add(Autodesk.Revit.UI.RevitDBApplication.ControlledApplication);
                     return list.ToArray();
                 }
             }

@@ -24,13 +24,17 @@ namespace ricaun.DA4R.NUnit.Services
             output.VersionBuild = application.VersionBuild;
             output.TimeStart = DateTime.UtcNow;
 
+            output.Save();
+
             UnZipAndTestFiles(application, output);
 
             output.TimeFinish = DateTime.UtcNow;
 
             var text = output.Save();
             Console.WriteLine(text);
-
+#if DEBUG
+            System.Windows.Clipboard.SetText(text);
+#endif
 
             return true;
         }
@@ -63,11 +67,11 @@ namespace ricaun.DA4R.NUnit.Services
             foreach (var filePath in Directory.GetFiles(directory, "*.dll"))
             {
                 var fileName = Path.GetFileName(filePath);
-                Console.WriteLine($"Test File: {fileName}");
                 try
                 {
                     if (TestEngine.ContainNUnit(filePath))
                     {
+                        Console.WriteLine($"Test File: {fileName}");
                         Console.WriteLine("--------------------------------------------------");
                         foreach (var parameter in RevitParameters.Parameters)
                         {
@@ -78,6 +82,9 @@ namespace ricaun.DA4R.NUnit.Services
                         var modelTest = TestEngine.TestAssembly(
                             filePath,
                             RevitParameters.Parameters);
+
+                        Console.WriteLine($"{modelTest}");
+                        Console.WriteLine("--------------------------------------------------");
 
                         output.Tests.Add(modelTest);
                     }

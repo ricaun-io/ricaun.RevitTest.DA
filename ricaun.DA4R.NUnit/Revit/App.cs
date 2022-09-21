@@ -28,10 +28,28 @@ namespace ricaun.DA4R.NUnit.Revit
         private void DesignAutomationBridge_DesignAutomationReadyEvent(object sender, DesignAutomationReadyEventArgs e)
         {
             var data = e.DesignAutomationData;
+
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine($"RevitApp: {data.RevitApp} FilePath: {data.FilePath} RevitDoc: {data.RevitDoc}");
             Console.WriteLine($"RevitNET: {data.RevitApp.GetType().Assembly.FullName}");
             Console.WriteLine("--------------------------------------------------");
+
+            RevitParameters.AddParameter(data.RevitApp);
+
+            //var revitNet = data.RevitApp;
+
+            //Console.WriteLine("--------------------------------------------------");
+            //foreach (var item in revitNet.GetType().GetNestedTypes())
+            //{
+            //    Console.WriteLine($"Type: {item}");
+            //}
+            //foreach (var member in revitNet.GetType().GetMembers())
+            //{
+            //    Console.WriteLine($"{member.MemberType} {member}");
+            //}
+            //Console.WriteLine("--------------------------------------------------");
+            //Console.WriteLine("--------------------------------------------------");
+
             e.Succeeded = DesignAutomationController.Execute(data.RevitApp, data.FilePath, data.RevitDoc);
         }
     }
