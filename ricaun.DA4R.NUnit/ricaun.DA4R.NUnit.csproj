@@ -118,11 +118,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ricaun.NUnit" Version="*" />
+    <!--
       <Reference Include="ricaun.NUnit.1.0.5">
         <HintPath>..\..\..\..\Documents\GitHub\ricaun-io\ricaun.NUnit\ricaun.NUnit\bin\Release\ricaun.NUnit.1.0.5.dll</HintPath>
       </Reference>
-    <!--
-    <PackageReference Include="ricaun.NUnit" Version="*" />
     -->
     <PackageReference Include="Autodesk.Forge.DesignAutomation.Revit" Version="$(RevitVersion).*" />
   </ItemGroup>

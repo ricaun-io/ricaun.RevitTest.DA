@@ -4,6 +4,7 @@ using ricaun.DA4R.NUnit.Extensions;
 using ricaun.DA4R.NUnit.Models;
 using ricaun.NUnit;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
@@ -57,7 +58,28 @@ namespace ricaun.DA4R.NUnit.Services
                             return;
                         }
                     }
+
+                    // Test Main Directory
                     TestDirectory(output, zipDestination);
+
+                    // Try to find Directory
+                    if (output.Tests.Count == 0)
+                    {
+                        if (int.TryParse(application.VersionNumber, out int version))
+                        {
+                            for (int i = 1; i < 10; i++)
+                            {
+                                var versionTest = version - i;
+                                Console.WriteLine($"Test Folder: {versionTest}");
+                                var versionTestDirectory = Path.Combine(zipDestination, versionTest.ToString());
+                                if (Directory.Exists(versionTestDirectory))
+                                {
+                                    TestDirectory(output, versionTestDirectory);
+                                    return;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

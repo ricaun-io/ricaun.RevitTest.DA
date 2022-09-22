@@ -26,11 +26,6 @@ namespace ricaun.DA4R.NUnit.Revit.UI.Commands
             return Result.Succeeded;
         }
 
-        private void Uiapp_Idling(object sender, Autodesk.Revit.UI.Events.IdlingEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void CopyFile(string filePath)
         {
             var fileName = Path.GetFileName(filePath);

@@ -12,6 +12,7 @@ namespace ricaun.DA4R.NUnit.Revit
         {
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine(this.GetType().Assembly.FullName);
+            Console.WriteLine(typeof(ricaun.NUnit.TestEngine).Assembly.FullName);
             Console.WriteLine("--------------------------------------------------");
 
             RevitParameters.AddParameter(application, application.GetApplication());

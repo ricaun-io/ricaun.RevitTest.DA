@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Fix UnZip File
 - Fix Test Parameters, `RevitApp` is a RevitNET type.  
 ### Features
+- Auto Find Directory Version
 - Add RevitParameters
 - TestAssembly in `*.zip` and `output.json`
 
