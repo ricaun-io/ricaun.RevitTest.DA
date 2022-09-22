@@ -29,6 +29,7 @@ namespace ricaun.DA4R.NUnit.Services
 
             UnZipAndTestFiles(application, output);
 
+            output.Success = !output.Tests.Any(t => t.Success == false);
             output.TimeFinish = DateTime.UtcNow;
 
             var text = output.Save();
