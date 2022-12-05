@@ -94,13 +94,18 @@ namespace ricaun.DA4R.NUnit.Services
                 {
                     if (TestEngine.ContainNUnit(filePath))
                     {
-                        Console.WriteLine($"Test File: {fileName}");
+                        Console.WriteLine($"Test File: {fileName} [{TestEngine.Version} - {TestEngine.VersionNUnit}]");
                         Console.WriteLine("--------------------------------------------------");
                         foreach (var parameter in RevitParameters.Parameters)
                         {
                             Console.WriteLine($"RevitParameters: {parameter}");
                         }
                         Console.WriteLine("--------------------------------------------------");
+                        TestEngineFilter.Reset();
+                        foreach (var testName in TestEngine.GetTestFullNames(filePath))
+                        {
+                            Console.WriteLine($"\t{testName}");
+                        }
 
                         var modelTest = TestEngine.TestAssembly(
                             filePath,

@@ -118,16 +118,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ricaun.NUnit" Version="*" />
     <!--
-      <Reference Include="ricaun.NUnit.1.0.5">
-        <HintPath>..\..\..\..\Documents\GitHub\ricaun-io\ricaun.NUnit\ricaun.NUnit\bin\Release\ricaun.NUnit.1.0.5.dll</HintPath>
-      </Reference>
+    <PackageReference Include="ricaun.NUnit" Version="1.0.8" />
     -->
-    <PackageReference Include="Autodesk.Forge.DesignAutomation.Revit" Version="$(RevitVersion).*" />
+      <Reference Include="ricaun.NUnit.1.0.8">
+        <HintPath>..\..\..\..\Documents\GitHub\ricaun-io\ricaun.NUnit\ricaun.NUnit\bin\Release\ricaun.NUnit.1.0.8.dll</HintPath>
+      </Reference>
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autodesk.Forge.DesignAutomation.Revit" Version="$(RevitVersion).*" />
     <PackageReference Include="Newtonsoft.Json" Version="*" IncludeAssets="build; compile" PrivateAssets="All" />
     <PackageReference Include="Revit_All_Main_Versions_API_x64" Version="$(RevitVersion).*" IncludeAssets="build; compile" PrivateAssets="All" />
   </ItemGroup>
