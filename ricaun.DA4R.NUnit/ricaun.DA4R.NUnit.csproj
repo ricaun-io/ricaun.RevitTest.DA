@@ -118,12 +118,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!--
     <PackageReference Include="ricaun.NUnit" Version="1.0.8" />
-    -->
+    <!--
       <Reference Include="ricaun.NUnit.1.0.8">
         <HintPath>..\..\..\..\Documents\GitHub\ricaun-io\ricaun.NUnit\ricaun.NUnit\bin\Release\ricaun.NUnit.1.0.8.dll</HintPath>
       </Reference>
+    -->
   </ItemGroup>
 
   <ItemGroup>
