@@ -34,9 +34,12 @@ namespace ricaun.DA4R.NUnit.Services
 
             var text = output.Save();
             Console.WriteLine(text);
+
 #if DEBUG
             System.Windows.Clipboard.SetText(text);
 #endif
+
+            OutputModelUtils.ZipToJson();
 
             return true;
         }

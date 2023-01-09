@@ -91,7 +91,7 @@
 
   <PropertyGroup>
     <PackageId>ricaun.DA4R.NUnit</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <ProjectGuid>{6AFAFB38-74EC-4D31-B84C-AAA4C0A1ECB9}</ProjectGuid>
   </PropertyGroup>
 
@@ -118,7 +118,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ricaun.NUnit" Version="1.0.9" />
+    <PackageReference Include="ricaun.NUnit" Version="*" />
     <!--
     <Reference Include="ricaun.NUnit.1.0.9">
       <HintPath>..\..\..\..\Documents\GitHub\ricaun-io\ricaun.NUnit\ricaun.NUnit\bin\Release\ricaun.NUnit.1.0.9.dll</HintPath>
