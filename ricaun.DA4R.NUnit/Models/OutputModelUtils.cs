@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ricaun.DA4R.NUnit.Extensions;
+using System;
 using System.IO;
 
 namespace ricaun.DA4R.NUnit.Models
@@ -7,15 +8,15 @@ namespace ricaun.DA4R.NUnit.Models
     {
         private const string JSON_FILE = "output.json";
         private const string ZIP_FILE = "output.zip";
-        public static void ZipToJson()
+        public static void ZipFolder()
         {
-            if (File.Exists(ZIP_FILE))
+            try
             {
-                Console.WriteLine("----------");
-                Console.WriteLine($"Convert: {ZIP_FILE} to {JSON_FILE}");
-                File.Delete(JSON_FILE);
-                File.Move(ZIP_FILE, JSON_FILE);
-                Console.WriteLine("----------");
+                ZipExtension.ZipCurrentFolder(ZIP_FILE, JSON_FILE);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"ZipExtension: {ex}");
             }
         }
     }

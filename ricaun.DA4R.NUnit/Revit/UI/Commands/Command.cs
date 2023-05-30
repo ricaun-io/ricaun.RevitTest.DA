@@ -19,10 +19,7 @@ namespace ricaun.DA4R.NUnit.Revit.UI.Commands
 
             using (new CurrentDirectory())
             {
-                var path = @"C:\Users\ricau\source\repos\RevitAddin.UnitTest\RevitAddin.UnitTest\bin\ReleaseFiles\RevitAddin.UnitTest 1.0.0.zip";
-                //path = @"C:\Users\ricau\Downloads\SampleTest\Revit.TestRunner.SampleTestProject2.zip";
-                path = @"C:\Users\ricau\Downloads\SampleTest\SampleTest.zip";
-                //path = @"C:\Users\ricau\Downloads\SampleTest\RevitAddin.RevitApplication.Tests3.zip";
+                var path = @"Resources\SampleTest.zip";
                 CopyFile(path);
                 DesignAutomationController.Execute(uiapp.Application);
             }
