@@ -36,7 +36,7 @@ namespace ricaun.DA4R.NUnit.Services
             System.Windows.Clipboard.SetText(text);
 #endif
 
-            //OutputModelUtils.ZipFolder();
+            OutputModelUtils.InputZip();
 
             return true;
         }
