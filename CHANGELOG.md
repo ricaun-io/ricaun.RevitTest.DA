@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.0.3] / 2023-06-13
 ### Console
 - Add Console Project to run `TestService`
+- Exception is shown in Tests with `CreateTestAssemblyModelWithException`
 ### Updated
 - Update Build to compile `Console` Project
 

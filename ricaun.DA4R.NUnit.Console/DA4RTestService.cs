@@ -6,6 +6,7 @@ using ricaun.Revit.Installation;
 using ricaun.RevitTest.Command;
 using ricaun.RevitTest.Command.Extensions;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -21,7 +22,7 @@ namespace ricaun.DA4R.NUnit.Console
 
     public class DA4RTestService : IRunTestService
     {
-        private const int MINIMAL_ENGINE_VERSION = 2019;
+        private const int MINIMAL_ENGINE_VERSION = 2018;
 
         public string[] GetTests(string filePath)
         {
@@ -61,9 +62,45 @@ namespace ricaun.DA4R.NUnit.Console
                 catch (Exception ex)
                 {
                     Log.WriteLine($"Exception: {ex}");
+
+                    var testAssemblyModel = CreateTestAssemblyModelWithException(fileToTest, ex);
+
+                    actionOutput?.Invoke(null); // Force to clear file
+                    actionOutput?.Invoke(testAssemblyModel.ToJson());
+
+                    await Task.Delay(500);
+
                     return false;
                 }
             }).GetAwaiter().GetResult();
+        }
+
+        private TestAssemblyModel CreateTestAssemblyModelWithException(string fileToTest, Exception exception)
+        {
+            var testNames = GetTests(fileToTest);
+
+            var testTypeModel = new TestTypeModel();
+            testTypeModel.Tests = new List<TestModel>();
+
+            var testAssemblyModel = new TestAssemblyModel();
+            testAssemblyModel.Name = Path.GetFileName(fileToTest);
+            testAssemblyModel.FileName = Path.GetFileName(fileToTest);
+            testAssemblyModel.TestCount = testNames.Length;
+            testAssemblyModel.Tests = new List<TestTypeModel>() { testTypeModel };
+
+            foreach (var testName in testNames)
+            {
+                var testModel = new TestModel()
+                {
+                    FullName = testName,
+                    Success = false,
+                    Message = exception.Message,
+                };
+
+                testTypeModel.Tests.Add(testModel);
+            }
+
+            return testAssemblyModel;
         }
 
         private async Task Run(string filePath, int revitVersionNumber, Action<string> actionOutput)
