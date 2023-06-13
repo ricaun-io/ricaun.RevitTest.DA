@@ -1,18 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29613.14
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{0E7495B5-F467-4591-906E-D3B0100A4933}") = "ricaun.DA4R.NUnit", "ricaun.DA4R.NUnit\ricaun.DA4R.NUnit.csproj", "{6AFAFB38-74EC-4D31-B84C-AAA4C0A1ECB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ricaun.DA4R.NUnit", "ricaun.DA4R.NUnit\ricaun.DA4R.NUnit.csproj", "{6AFAFB38-74EC-4D31-B84C-AAA4C0A1ECB9}"
 EndProject
-Project("{0E7495B5-F467-4591-906E-D3B0100A4933}") = "Build", "Build\Build.csproj", "{071ED911-9F86-4D2A-BEEF-96F106057DB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Build", "Build\Build.csproj", "{071ED911-9F86-4D2A-BEEF-96F106057DB4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{A525896D-64B9-43CA-9D82-E0E37E51DE40}"
 	ProjectSection(SolutionItems) = preProject
 		CHANGELOG.md = CHANGELOG.md
+		Directory.Build.props = Directory.Build.props
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ricaun.DA4R.NUnit.Console", "ricaun.DA4R.NUnit.Console\ricaun.DA4R.NUnit.Console.csproj", "{A5952448-6832-4025-93C4-B711ECE16C10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +29,10 @@ Global
 		{6AFAFB38-74EC-4D31-B84C-AAA4C0A1ECB9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{071ED911-9F86-4D2A-BEEF-96F106057DB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{071ED911-9F86-4D2A-BEEF-96F106057DB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5952448-6832-4025-93C4-B711ECE16C10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5952448-6832-4025-93C4-B711ECE16C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5952448-6832-4025-93C4-B711ECE16C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5952448-6832-4025-93C4-B711ECE16C10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Build Schema",
   "$ref": "#/definitions/build",
+  "title": "Build Schema",
   "definitions": {
     "build": {
       "type": "object",
@@ -88,10 +88,10 @@
         "ReleaseBundle": {
           "type": "boolean"
         },
-        "ReleaseNameVersion": {
+        "ReleaseExample": {
           "type": "boolean"
         },
-        "ReleasePackageBuilder": {
+        "ReleaseNameVersion": {
           "type": "boolean"
         },
         "Root": {
@@ -113,6 +113,7 @@
             "type": "string",
             "enum": [
               "Build",
+              "BuildConsole",
               "Clean",
               "Compile",
               "GitRelease",
@@ -133,6 +134,7 @@
             "type": "string",
             "enum": [
               "Build",
+              "BuildConsole",
               "Clean",
               "Compile",
               "GitRelease",

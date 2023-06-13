@@ -91,7 +91,7 @@
 
   <PropertyGroup>
     <PackageId>ricaun.DA4R.NUnit</PackageId>
-    <Version>1.0.2</Version>
+    <Version Condition="'$(Version)' == ''">1.0.0</Version>
     <ProjectGuid>{6AFAFB38-74EC-4D31-B84C-AAA4C0A1ECB9}</ProjectGuid>
   </PropertyGroup>
 
