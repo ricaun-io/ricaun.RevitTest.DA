@@ -41,6 +41,12 @@ Unit Test Framework for DA4R.
 └── ...
 ```
 
+## Console
+
+```
+ricaun.DA4R.NUnit.Console.exe --file "C:\Users\ricau\Downloads\SampleTest\RevitAddin.RevitApplication.Tests\2021\RevitAddin.RevitApplication.Tests.dll" -o "console" -l
+```
+
 ## Release
 
 * [Latest release](../../releases/latest)
