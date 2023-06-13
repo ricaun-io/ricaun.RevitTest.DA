@@ -13,13 +13,12 @@ namespace ricaun.DA4R.NUnit.Revit.UI
         public Result OnStartup(UIControlledApplication application)
         {
             ribbonPanel = application.CreatePanel("DA4R");
-            ribbonPanel.CreatePushButton<Commands.Command>()
-                .SetLargeImage(Properties.Resources.Revit.GetBitmapSource());
+            ribbonPanel.CreatePushButton<Commands.Command>("NUnit")
+               .SetLargeImage("/UIFrameworkRes;component/ribbon/images/add.ico");
+            //.SetLargeImage(Properties.Resources.Revit.GetBitmapSource());
 
             Console.WriteLine("--------------------------------------------------");
-            Console.WriteLine(this.GetType().Assembly.FullName);
-            Console.WriteLine(typeof(ricaun.NUnit.TestEngine).Assembly.FullName);
-            Console.WriteLine($"ricaun.NUnit {ricaun.NUnit.TestEngine.Version} {ricaun.NUnit.TestEngine.VersionNUnit}");
+            Console.WriteLine($"TestEngine: {ricaun.NUnit.TestEngine.Initialize(out string testInitialize)} {testInitialize}");
             Console.WriteLine("--------------------------------------------------");
 
             foreach (var item in AppDomain.CurrentDomain.GetAssemblies().Where(e => e.GetName().Name == "nunit.framework"))
@@ -27,13 +26,6 @@ namespace ricaun.DA4R.NUnit.Revit.UI
                 Console.WriteLine($"{item} \t{item.Location}");
             }
             Console.WriteLine("--------------------------------------------------");
-            //foreach (var item in AppDomain.CurrentDomain.GetAssemblies().Where(e => e.GetName().Name.Contains("Dynamo")))
-            //{
-            //    Console.WriteLine($"{item} {item.Location}");
-            //}
-            //Console.WriteLine("--------------------------------------------------");
-            //Console.WriteLine(typeof(NUnitAttribute).Assembly);
-
 
             return Result.Succeeded;
         }
