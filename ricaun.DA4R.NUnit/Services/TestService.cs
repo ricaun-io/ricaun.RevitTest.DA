@@ -77,11 +77,14 @@ namespace ricaun.DA4R.NUnit.Services
                             Console.WriteLine($"\t{testName}");
                         }
 
+                        Console.WriteLine("--------------------------------------------------");
+                        Console.WriteLine($"Test Start: {fileName}");
+
                         var modelTest = TestEngine.TestAssembly(
                             filePath,
                             RevitParameters.Parameters);
 
-                        Console.WriteLine($"{modelTest}");
+                        Console.WriteLine($"Test Finish: {modelTest}");
                         Console.WriteLine("--------------------------------------------------");
 
                         output.Tests.Add(modelTest);

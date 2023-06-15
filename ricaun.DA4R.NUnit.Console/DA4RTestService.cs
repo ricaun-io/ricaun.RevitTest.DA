@@ -124,7 +124,8 @@ namespace ricaun.DA4R.NUnit.Console
                 EngineVersions = new[] { revitVersionNumber.ToString() },
                 EnableConsoleLogger = Log.Enabled,
                 //EnableParameterConsoleLogger = true,
-                //EnableReportConsoleLogger = true,
+                EnableReportConsoleLogger = Log.Enabled,
+                RunTimeOutMinutes = 10.0, //10.0,
             };
 
             await designAutomationService.Initialize(App.Bundle);
@@ -158,9 +159,14 @@ namespace ricaun.DA4R.NUnit.Console
             Log.WriteLine("-------------------------------------");
 
             actionOutput?.Invoke(null); // Force to clear file
-            actionOutput?.Invoke(output.Tests.FirstOrDefault().ToJson());
+            actionOutput?.Invoke(output?.Tests?.FirstOrDefault().ToJson());
 
             await designAutomationService.Delete();
+
+            if (result == false)
+            {
+                throw new Exception("Run Fail - Timeout? CheckLog?");
+            }
         }
 
         private static void PrintOutput(OutputModel output)
