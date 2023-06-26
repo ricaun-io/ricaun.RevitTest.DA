@@ -49,7 +49,19 @@ namespace ricaun.DA4R.NUnit.Console
             if (revitVersionNumber < MINIMAL_ENGINE_VERSION)
             {
                 Log.WriteLine($"Revit version not supported: {revitVersionNumber}");
-                return false;
+
+                return Task.Run(async () =>
+                {
+                    var ex = new Exception($"Revit version not supported: {revitVersionNumber}");
+                    var testAssemblyModel = CreateTestAssemblyModelWithException(fileToTest, ex);
+
+                    actionOutput?.Invoke(null); // Force to clear file
+                    actionOutput?.Invoke(testAssemblyModel.ToJson());
+
+                    await Task.Delay(500);
+
+                    return false;
+                }).GetAwaiter().GetResult();
             }
 
             return Task.Run(async () =>
@@ -78,29 +90,7 @@ namespace ricaun.DA4R.NUnit.Console
         private TestAssemblyModel CreateTestAssemblyModelWithException(string fileToTest, Exception exception)
         {
             var testNames = GetTests(fileToTest);
-
-            var testTypeModel = new TestTypeModel();
-            testTypeModel.Tests = new List<TestModel>();
-
-            var testAssemblyModel = new TestAssemblyModel();
-            testAssemblyModel.Name = Path.GetFileName(fileToTest);
-            testAssemblyModel.FileName = Path.GetFileName(fileToTest);
-            testAssemblyModel.TestCount = testNames.Length;
-            testAssemblyModel.Tests = new List<TestTypeModel>() { testTypeModel };
-
-            foreach (var testName in testNames)
-            {
-                var testModel = new TestModel()
-                {
-                    FullName = testName,
-                    Success = false,
-                    Message = exception.Message,
-                };
-
-                testTypeModel.Tests.Add(testModel);
-            }
-
-            return testAssemblyModel;
+            return TestExceptionUtils.CreateTestAssemblyModelWithException(fileToTest, testNames, exception);
         }
 
         private async Task Run(string filePath, int revitVersionNumber, Action<string> actionOutput)
