@@ -6,10 +6,9 @@ using ricaun.Revit.Installation;
 using ricaun.RevitTest.Command;
 using ricaun.RevitTest.Command.Extensions;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net.Http;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace ricaun.DA4R.NUnit.Console
@@ -18,6 +17,7 @@ namespace ricaun.DA4R.NUnit.Console
     {
         public static string Name { get; set; } = "ricaun_DA4R_NUnit_Test";
         public static string Bundle { get; set; } = $".\\Resources\\ricaun.DA4R.NUnit.bundle.zip";
+        public static string DirectoryResolver { get; set; } = $".\\Resources\\Reference";
     }
 
     public class DA4RTestService : IRunTestService
@@ -26,6 +26,16 @@ namespace ricaun.DA4R.NUnit.Console
 
         public string[] GetTests(string filePath)
         {
+            try
+            {
+                var directoryResolver = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), App.DirectoryResolver);
+                if (Directory.Exists(directoryResolver))
+                {
+                    var result = TestEngine.GetTestFullNames(filePath, directoryResolver);
+                    if (result.Length > 0) return result;
+                }
+            }
+            catch { }
             return TestEngine.GetTestFullNames(filePath);
         }
 
