@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.0.7] / 2023-06-27
 ### Console
 - Add `ForgeEnvironment` to `release`
+- Update `Oss.DesignAutomation` package to `1.0.4`
 
 ## [1.0.6] / 2023-06-27
 ### Console

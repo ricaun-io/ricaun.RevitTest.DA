@@ -119,6 +119,8 @@ namespace ricaun.DA4R.NUnit.Console
 
             Log.WriteLine($"Create Input: {zipFileTemporary.ZipFilePath}");
             Log.WriteLine("-------------------------------------");
+            Log.WriteLine($"Oss.DesignAutomation: {typeof(IDesignAutomationService).Assembly.GetName().Version.ToString(3)}");
+            Log.WriteLine("-------------------------------------");
 
             IDesignAutomationService designAutomationService = new RevitDesignAutomationService(App.Name)
             {
