@@ -18,6 +18,7 @@ namespace ricaun.DA4R.NUnit.Console
         public static string Name { get; set; } = "ricaun_DA4R_NUnit_Test";
         public static string Bundle { get; set; } = $".\\Resources\\ricaun.DA4R.NUnit.bundle.zip";
         public static string DirectoryResolver { get; set; } = $".\\Resources\\Reference";
+        public static string ForgeEnvironment { get; set; } = "release";
     }
 
     public class DA4RTestService : IRunTestService
@@ -118,6 +119,8 @@ namespace ricaun.DA4R.NUnit.Console
 
             Log.WriteLine($"Create Input: {zipFileTemporary.ZipFilePath}");
             Log.WriteLine("-------------------------------------");
+            Log.WriteLine($"Oss.DesignAutomation: {typeof(IDesignAutomationService).Assembly.GetName().Version.ToString(3)}");
+            Log.WriteLine("-------------------------------------");
 
             IDesignAutomationService designAutomationService = new RevitDesignAutomationService(App.Name)
             {
@@ -126,6 +129,7 @@ namespace ricaun.DA4R.NUnit.Console
                 //EnableParameterConsoleLogger = true,
                 EnableReportConsoleLogger = Log.Enabled,
                 RunTimeOutMinutes = 10.0, //10.0,
+                ForgeEnvironment = App.ForgeEnvironment,
             };
 
             await designAutomationService.Initialize(App.Bundle);
