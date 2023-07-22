@@ -87,6 +87,18 @@ namespace ricaun.DA4R.NUnit.Services
                         Console.WriteLine($"Test Finish: {modelTest}");
                         Console.WriteLine("--------------------------------------------------");
 
+                        var tests = modelTest.Tests.SelectMany(e => e.Tests);
+                        if (tests.Any() == false)
+                        {
+                            Console.WriteLine($"Error: {modelTest.Message}");
+                            try
+                            {
+                                var ex = new Exception(modelTest.Message.Split('\n').FirstOrDefault());
+                                modelTest = TestEngine.Fail(filePath, ex);
+                            }
+                            catch { }
+                        }
+
                         output.Tests.Add(modelTest);
                     }
 
