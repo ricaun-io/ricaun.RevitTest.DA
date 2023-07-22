@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.0.8] / 2023-07-22
+### Console
+- Add `Console` log information in `Program`
+
 ## [1.0.7] / 2023-06-30
 ### Console
 - Add `ForgeEnvironment` to `release`
@@ -57,6 +61,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TestAssembly in `*.zip` and `output.json`
 
 [vNext]: ../../compare/1.0.0...HEAD
+[1.0.8]: ../../compare/1.0.7...1.0.8
 [1.0.7]: ../../compare/1.0.6...1.0.7
 [1.0.6]: ../../compare/1.0.5...1.0.6
 [1.0.5]: ../../compare/1.0.4...1.0.5
