@@ -47,6 +47,16 @@ Unit Test Framework for DA4R.
 ricaun.DA4R.NUnit.Console.exe --file "C:\Users\ricau\Downloads\SampleTest\RevitAddin.RevitApplication.Tests\2021\RevitAddin.RevitApplication.Tests.dll" -o "console" -l
 ```
 
+### Configuration
+
+By default the Forge credentials could be defined with the following environment variables:
+
+```bash
+FORGE_CLIENT_ID=<your client id>
+FORGE_CLIENT_SECRET=<your client secret>
+FORGE_CLIENT_CUSTOM_HEADER_VALUE=<your custom header value>
+```
+
 ## Release
 
 * [Latest release](../../releases/latest)

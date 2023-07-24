@@ -13,14 +13,6 @@ using System.Threading.Tasks;
 
 namespace ricaun.DA4R.NUnit.Console
 {
-    public class App
-    {
-        public static string Name { get; set; } = "ricaun_DA4R_NUnit_Test";
-        public static string Bundle { get; set; } = $".\\Resources\\ricaun.DA4R.NUnit.bundle.zip";
-        public static string DirectoryResolver { get; set; } = $".\\Resources\\Reference";
-        public static string ForgeEnvironment { get; set; } = "release";
-    }
-
     public class DA4RTestService : IRunTestService
     {
         private const int MINIMAL_ENGINE_VERSION = 2018;
@@ -49,6 +41,10 @@ namespace ricaun.DA4R.NUnit.Console
             bool forceToCloseRevit = false,
             params string[] testFilters)
         {
+
+            var name = this.GetType().Assembly.GetName();
+            Log.WriteLine($"{name.Name} {name.Version!.ToString(3)}");
+
             if (revitVersionNumber == 0)
             {
                 if (RevitUtils.TryGetRevitVersion(fileToTest, out revitVersionNumber))
