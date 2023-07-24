@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Application
 - Add `TestEngine.Fail` when fail.
 ### Console
-- Add `Console` log information in `Program`
+- Add `Console` log information in `RunTests`
 
 ## [1.0.7] / 2023-06-30
 ### Console
