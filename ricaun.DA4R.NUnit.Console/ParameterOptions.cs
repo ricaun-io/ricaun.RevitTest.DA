@@ -12,5 +12,8 @@ namespace ricaun.DA4R.NUnit.Console
 
         [ParameterOutput("output.zip", DownloadFile = false)]
         public string OutputZip { get; set; }
+
+        [ParameterActivityLanguage]
+        public string Language { get; set; }
     }
 }

@@ -36,12 +36,12 @@ namespace ricaun.DA4R.NUnit.Console
             string fileToTest,
             int revitVersionNumber,
             Action<string> actionOutput = null,
+            string forceLanguageToRevit = null,
             bool forceToOpenNewRevit = false,
             bool forceToWaitRevit = false,
             bool forceToCloseRevit = false,
             params string[] testFilters)
         {
-
             var name = this.GetType().Assembly.GetName();
             Log.WriteLine($"{name.Name} {name.Version!.ToString(3)}");
 
@@ -75,7 +75,7 @@ namespace ricaun.DA4R.NUnit.Console
             {
                 try
                 {
-                    await Run(fileToTest, revitVersionNumber, actionOutput);
+                    await Run(fileToTest, revitVersionNumber, forceLanguageToRevit, actionOutput);
                     return true;
                 }
                 catch (Exception ex)
@@ -100,9 +100,13 @@ namespace ricaun.DA4R.NUnit.Console
             return TestExceptionUtils.CreateTestAssemblyModelWithException(fileToTest, testNames, exception);
         }
 
-        private async Task Run(string filePath, int revitVersionNumber, Action<string> actionOutput)
+        private async Task Run(string filePath, int revitVersionNumber, string revitLanguage, Action<string> actionOutput)
         {
+
+            revitLanguage = LanguageUtils.GetArgument(revitLanguage);
+
             Log.WriteLine($"Version: {revitVersionNumber}");
+            Log.WriteLine($"Language: {revitLanguage}");
 
             if (!Path.GetExtension(filePath).EndsWith("dll"))
             {
@@ -132,6 +136,7 @@ namespace ricaun.DA4R.NUnit.Console
 
             var option = new ParameterOptions()
             {
+                Language = revitLanguage,
                 Input = zipFileTemporary.ZipFilePath,
             };
 
