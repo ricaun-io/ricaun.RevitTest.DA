@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.1.2] / 2023-10-09
+### Features
+- Test project to run `Console` using `RevitTest`.
+### Console
+- Update `ricaun.Revit.Installation` to `1.1.0`
+- Update `ricaun.RevitTest.Command` to `1.1.2`
+
+## [1.1.1] / 2023-10-06
+### Application
+- Update `ricaun.NUnit` to `1.3.1`
+### Console
+- Update `ricaun.RevitTest.Command` to `1.1.1`
+
 ## [1.1.0] / 2023-08-23
 ### Console
 - Support Language command
@@ -73,6 +86,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TestAssembly in `*.zip` and `output.json`
 
 [vNext]: ../../compare/1.0.0...HEAD
+[1.1.2]: ../../compare/1.1.1...1.1.2
+[1.1.1]: ../../compare/1.1.0...1.1.1
 [1.1.0]: ../../compare/1.0.9...1.1.0
 [1.0.9]: ../../compare/1.0.8...1.0.9
 [1.0.8]: ../../compare/1.0.7...1.0.8

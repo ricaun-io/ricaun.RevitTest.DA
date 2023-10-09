@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{A5
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ricaun.DA4R.NUnit.Console", "ricaun.DA4R.NUnit.Console\ricaun.DA4R.NUnit.Console.csproj", "{A5952448-6832-4025-93C4-B711ECE16C10}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ricaun.DA4R.NUnit.Tests", "ricaun.DA4R.NUnit.Tests\ricaun.DA4R.NUnit.Tests.csproj", "{8266741E-4774-4D39-B044-DE530BA504C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A5952448-6832-4025-93C4-B711ECE16C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5952448-6832-4025-93C4-B711ECE16C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5952448-6832-4025-93C4-B711ECE16C10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8266741E-4774-4D39-B044-DE530BA504C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8266741E-4774-4D39-B044-DE530BA504C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8266741E-4774-4D39-B044-DE530BA504C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8266741E-4774-4D39-B044-DE530BA504C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -17,10 +17,17 @@ namespace ricaun.DA4R.NUnit.Console
     {
         private const int MINIMAL_ENGINE_VERSION = 2018;
 
+        private void LogApplicationInfo()
+        {
+            var name = this.GetType().Assembly.GetName();
+            Log.WriteLine($"{name.Name} {name.Version!.ToString(3)}");
+        }
+
         public string[] GetTests(string filePath)
         {
             try
             {
+                LogApplicationInfo();
                 var directoryResolver = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), App.DirectoryResolver);
                 if (Directory.Exists(directoryResolver))
                 {
@@ -42,8 +49,7 @@ namespace ricaun.DA4R.NUnit.Console
             bool forceToCloseRevit = false,
             params string[] testFilters)
         {
-            var name = this.GetType().Assembly.GetName();
-            Log.WriteLine($"{name.Name} {name.Version!.ToString(3)}");
+            LogApplicationInfo();
 
             if (revitVersionNumber == 0)
             {
