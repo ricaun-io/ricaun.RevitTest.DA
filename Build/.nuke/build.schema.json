@@ -91,6 +91,9 @@
         "ReleaseExample": {
           "type": "boolean"
         },
+        "ReleaseFolder": {
+          "type": "string"
+        },
         "ReleaseNameVersion": {
           "type": "boolean"
         },
@@ -119,7 +122,8 @@
               "GitRelease",
               "PackageBuilder",
               "Release",
-              "Sign"
+              "Sign",
+              "TestConsole"
             ]
           }
         },
@@ -140,7 +144,8 @@
               "GitRelease",
               "PackageBuilder",
               "Release",
-              "Sign"
+              "Sign",
+              "TestConsole"
             ]
           }
         },

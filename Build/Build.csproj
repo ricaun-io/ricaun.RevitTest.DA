@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ricaun.Nuke.PackageBuilder" Version="1.5.*" />
+    <PackageReference Include="ricaun.Nuke.PackageBuilder" Version="*" />
   </ItemGroup>
 
   <ItemGroup>
