@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.1.3] / 2023-12-07
 ### Console
 - Update `ricaun.Autodesk.Forge.Oss.DesignAutomation` to `1.0.8`
+- Remove `Resources`.
+### Tests
+- Update Tests
+- Tests `AssemblyTests`
 
 ## [1.1.2] / 2023-11-29
 ### Features
