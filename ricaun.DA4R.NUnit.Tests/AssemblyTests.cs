@@ -24,7 +24,14 @@ namespace ricaun.DA4R.NUnit.Tests
             var assemblies = AppDomain.CurrentDomain.GetAssemblies().OrderBy(e => e.GetName().Name);
             foreach (var assembly in assemblies)
             {
-                Console.WriteLine($"{assembly} \t{assembly.Location}");
+                string location = null;
+                try
+                {
+                    location = assembly.Location;
+                }
+                catch { }
+
+                Console.WriteLine($"{assembly.GetName().Name} \t{assembly.GetName().Version} \t{location}");
             }
         }
     }
