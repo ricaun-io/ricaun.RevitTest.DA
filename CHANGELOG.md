@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Console
 - Update `ricaun.Autodesk.Forge.Oss.DesignAutomation` to `1.0.8`
 - Remove `Resources`.
+- Add Revit preview 2025
 ### Tests
 - Update Tests
 - Tests `AssemblyTests`
