@@ -6,7 +6,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <UseWPF>true</UseWPF>
     <LangVersion>latest</LangVersion>
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
     <Configurations>
       Debug; Release;
@@ -14,53 +14,18 @@
   </PropertyGroup>
 
   <!-- RevitVersion -->
+  <PropertyGroup>
+    <TargetFrameworks>net47;net7.0-windows</TargetFrameworks>
+  </PropertyGroup>
   <Choose>
-    <When Condition="$(Configuration.Contains('2017'))">
-      <PropertyGroup>
-        <RevitVersion>2017</RevitVersion>
-        <TargetFramework>net46</TargetFramework>
-      </PropertyGroup>
-    </When>
-    <When Condition="$(Configuration.Contains('2018'))">
+    <When Condition="$(TargetFramework.StartsWith('net4'))">
       <PropertyGroup>
         <RevitVersion>2018</RevitVersion>
-        <TargetFramework>net46</TargetFramework>
-      </PropertyGroup>
-    </When>
-    <When Condition="$(Configuration.Contains('2019'))">
-      <PropertyGroup>
-        <RevitVersion>2019</RevitVersion>
-        <TargetFramework>net47</TargetFramework>
-      </PropertyGroup>
-    </When>
-    <When Condition="$(Configuration.Contains('2020'))">
-      <PropertyGroup>
-        <RevitVersion>2020</RevitVersion>
-        <TargetFramework>net47</TargetFramework>
-      </PropertyGroup>
-    </When>
-    <When Condition="$(Configuration.Contains('2021'))">
-      <PropertyGroup>
-        <RevitVersion>2021</RevitVersion>
-        <TargetFramework>net48</TargetFramework>
-      </PropertyGroup>
-    </When>
-    <When Condition="$(Configuration.Contains('2022'))">
-      <PropertyGroup>
-        <RevitVersion>2022</RevitVersion>
-        <TargetFramework>net48</TargetFramework>
-      </PropertyGroup>
-    </When>
-    <When Condition="$(Configuration.Contains('2023'))">
-      <PropertyGroup>
-        <RevitVersion>2023</RevitVersion>
-        <TargetFramework>net48</TargetFramework>
       </PropertyGroup>
     </When>
     <Otherwise>
       <PropertyGroup>
-        <RevitVersion>2018</RevitVersion>
-        <TargetFramework>net47</TargetFramework>
+        <RevitVersion>2025</RevitVersion>
       </PropertyGroup>
     </Otherwise>
   </Choose>
@@ -68,7 +33,7 @@
   <!-- Release -->
   <PropertyGroup Condition="!$(Configuration.Contains('Debug'))">
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>bin\Release\$(RevitVersion)</OutputPath>
     <DefineConstants>REVIT$(RevitVersion)</DefineConstants>
     <NoWarn>MSB3052</NoWarn>
     <DebugType>None</DebugType>
@@ -127,9 +92,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autodesk.Forge.DesignAutomation.Revit" Version="$(RevitVersion).*" />
-    <PackageReference Include="Newtonsoft.Json" Version="9.*" IncludeAssets="build; compile" PrivateAssets="All" />
-    <PackageReference Include="Revit_All_Main_Versions_API_x64" Version="$(RevitVersion).*" IncludeAssets="build; compile" PrivateAssets="All" />
+    <PackageReference Include="Autodesk.Forge.DesignAutomation.Revit" Version="$(RevitVersion).*-*" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.*" IncludeAssets="build; compile" PrivateAssets="All">
+      <NoWarn>NU1903</NoWarn>
+    </PackageReference>
+    <PackageReference Include="Revit_All_Main_Versions_API_x64" Version="$(RevitVersion).*-*" IncludeAssets="build; compile" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup Condition="!$(Configuration.Contains('Debug'))">
@@ -141,21 +108,6 @@
 
   <ItemGroup Condition="$(Configuration.Contains('Debug'))">
     <PackageReference Include="ricaun.Revit.UI" Version="*" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup Condition="$(Configuration.Contains('Debug'))">
