@@ -21,5 +21,4 @@ namespace ricaun.DA4R.NUnit.Tests.UI
             return typeof(UIApplication);
         }
     }
-
 }

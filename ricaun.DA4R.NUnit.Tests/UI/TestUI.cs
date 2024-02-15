@@ -19,5 +19,11 @@ namespace ricaun.DA4R.NUnit.Tests.UI
                 new AppDB().UI();
             });
         }
+
+        [Test]
+        public void NewAppUI()
+        {
+            UI.IsValid();
+        }
     }
 }
