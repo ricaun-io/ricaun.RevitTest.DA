@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.1.4] / 2024-01-29 - 2024-02-15
+### Application
+- Update to `net8.0-windows`
+### Console
+- Update to `net8.0`
+### Tests
+- Add `UI` tests.
+
 ## [1.1.3] / 2023-12-07
 ### Console
 - Update `ricaun.Autodesk.Forge.Oss.DesignAutomation` to `1.0.8`
@@ -95,6 +103,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TestAssembly in `*.zip` and `output.json`
 
 [vNext]: ../../compare/1.0.0...HEAD
+[1.1.4]: ../../compare/1.1.3...1.1.4
 [1.1.3]: ../../compare/1.1.2...1.1.3
 [1.1.2]: ../../compare/1.1.1...1.1.2
 [1.1.1]: ../../compare/1.1.0...1.1.1
