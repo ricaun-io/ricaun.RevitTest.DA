@@ -92,11 +92,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autodesk.Forge.DesignAutomation.Revit" Version="$(RevitVersion).*-*" />
+    <!--<PackageReference Include="Autodesk.Forge.DesignAutomation.Revit" Version="$(RevitVersion).*-*" />-->
     <PackageReference Include="Newtonsoft.Json" Version="9.*" IncludeAssets="build; compile" PrivateAssets="All">
       <NoWarn>NU1903</NoWarn>
     </PackageReference>
     <PackageReference Include="Revit_All_Main_Versions_API_x64" Version="$(RevitVersion).*-*" IncludeAssets="build; compile" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autodesk.Forge.DesignAutomation.Revit" Version="$(RevitVersion).*" Condition="$(RevitVersion) != '' And $(RevitVersion) &lt; '2025'" />
+    <Reference Include="DesignAutomationBridge" Condition="$(RevitVersion) == '2025'">
+      <HintPath>..\References\2025\DesignAutomationBridge.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup Condition="!$(Configuration.Contains('Debug'))">
