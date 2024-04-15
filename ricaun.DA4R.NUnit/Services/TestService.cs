@@ -105,7 +105,7 @@ namespace ricaun.DA4R.NUnit.Services
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex);
+                    Console.WriteLine($"{fileName} {ex}");
                     // output.Tests.Add(fileName);
                 }
             }

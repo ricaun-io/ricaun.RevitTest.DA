@@ -13,7 +13,10 @@
 
   <!-- RevitVersion -->
   <PropertyGroup>
+    <!--
     <TargetFrameworks>net48;net8.0-windows</TargetFrameworks>
+    -->
+    <TargetFrameworks>net8.0-windows</TargetFrameworks>
     <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
   </PropertyGroup>
@@ -66,12 +69,12 @@
 
   <ItemGroup>
     <PackageReference Include="NUnit" Version="3.13.3" />
-    <PackageReference Include="ricaun.RevitTest.TestAdapter" Version="*-*" />
+    <PackageReference Include="ricaun.RevitTest.TestAdapter" Version="*" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Revit_All_Main_Versions_API_x64" Version="$(RevitVersion).*-*" IncludeAssets="build; compile" PrivateAssets="All" />
+    <PackageReference Include="Revit_All_Main_Versions_API_x64" Version="$(RevitVersion).*" IncludeAssets="build; compile" PrivateAssets="All" />
   </ItemGroup>
 
   <!-- Release -->
@@ -85,5 +88,12 @@
       <_Parameter2>true</_Parameter2>
     </AssemblyAttribute>
   </ItemGroup>
+
+  <!--<ItemGroup Condition="!$(Configuration.Contains('Debug'))">
+    <Compile Remove="UI\**" />
+    <EmbeddedResource Remove="UI\**" />
+    <None Remove="UI\**" />
+    <Page Remove="UI\**" />
+  </ItemGroup>-->
 
 </Project>

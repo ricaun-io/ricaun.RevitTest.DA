@@ -125,8 +125,7 @@
               "GitRelease",
               "PackageBuilder",
               "Release",
-              "Sign",
-              "TestConsole"
+              "Sign"
             ]
           }
         },
@@ -147,8 +146,7 @@
               "GitRelease",
               "PackageBuilder",
               "Release",
-              "Sign",
-              "TestConsole"
+              "Sign"
             ]
           }
         },
