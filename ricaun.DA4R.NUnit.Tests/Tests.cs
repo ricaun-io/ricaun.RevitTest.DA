@@ -15,7 +15,7 @@ using System;
 //[assembly: System.Reflection.AssemblyMetadata("NUnit.Application", @"D:\Users\ricau\source\repos\ricaun.DA4R.NUnit\ricaun.DA4R.NUnit.Console\bin\Debug\ricaun.DA4R.NUnit.Console.exe")]
 //[assembly: System.Reflection.AssemblyMetadata("NUnit.Application", @"..\..\..\..\ricaun.DA4R.NUnit.Console\bin\Debug\ricaun.DA4R.NUnit.Console.exe")]
 
-[assembly: System.Reflection.AssemblyMetadata("NUnit.Application", "D:\\Users\\ricau\\source\\repos\\ricaun.DA4R.NUnit\\ricaun.DA4R.NUnit\\bin\\ReleaseFiles\\ricaun.DA4R.NUnit.Console.zip")]
+//[assembly: System.Reflection.AssemblyMetadata("NUnit.Application", "D:\\Users\\ricau\\source\\repos\\ricaun.DA4R.NUnit\\ricaun.DA4R.NUnit\\bin\\ReleaseFiles\\ricaun.DA4R.NUnit.Console.zip")]
 
 
 namespace ricaun.DA4R.NUnit.Tests
