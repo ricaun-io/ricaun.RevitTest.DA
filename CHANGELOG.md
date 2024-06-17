@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Console
 - Update to `packages`
 - Update to show `ProductVersion`
+- Update `References` using `refasme` and `mock` as reference.
 ### Tests
 - Test `2024` and `2025`
 
