@@ -7,8 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.2.0] / 2024-04-05
 ### Application
 - Support `Revit 2025`
+- Fix Warning in `Module`
 ### Console
 - Update to `packages`
+- Update to show `ProductVersion`
 ### Tests
 - Test `2024` and `2025`
 

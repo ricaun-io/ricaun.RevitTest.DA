@@ -19,8 +19,18 @@ namespace ricaun.DA4R.NUnit.Console
 
         private void LogApplicationInfo()
         {
-            var name = this.GetType().Assembly.GetName();
-            Log.WriteLine($"{name.Name} {name.Version!.ToString(3)}");
+            var assembly = this.GetType().Assembly;
+            var name = assembly.GetName();
+            var version = name.Version!.ToString(3);
+
+            try
+            {
+                var fileVersionInfo = System.Diagnostics.FileVersionInfo.GetVersionInfo(assembly.Location);
+                version = fileVersionInfo.ProductVersion.Split('+')[0];
+            }
+            catch { }
+
+            Log.WriteLine($"{name.Name} {version}");
         }
 
         public string[] GetTests(string filePath)
