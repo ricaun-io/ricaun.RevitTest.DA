@@ -46,7 +46,13 @@ namespace ricaun.DA4R.NUnit.Console
                 }
             }
             catch { }
-            return TestEngine.GetTestFullNames(filePath);
+
+            var baseTests = TestEngine.GetTestFullNames(filePath);
+            if (baseTests.Length == 0)
+            {
+                Log.WriteLine($"ERROR: TestEngine.GetTestFullNames is empty, some class is breaking.");
+            }
+            return baseTests;
         }
 
         public bool RunTests(
