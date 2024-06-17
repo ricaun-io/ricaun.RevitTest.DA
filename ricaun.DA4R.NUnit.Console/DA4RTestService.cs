@@ -194,6 +194,11 @@ namespace ricaun.DA4R.NUnit.Console
             {
                 throw new Exception("Run Fail - Timeout? CheckLog?");
             }
+
+            if (output.Tests.Count == 0)
+            {
+                throw new Exception("Run Fail - No tests found in the output.");
+            }
         }
 
         private static void PrintOutput(OutputModel output)

@@ -4,14 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [1.2.0] / 2024-04-05
+## [1.2.0] / 2024-04-05 - 2024-06-17
 ### Application
 - Support `Revit 2025`
 - Fix Warning in `Module`
 ### Console
 - Update to `packages`
-- Update to show `ProductVersion`
+- Update to show `ProductVersion` in the log.
 - Update `References` using `refasme` and `mock` as reference.
+- Show test fail if not test if found in the output.
 ### Tests
 - Test `2024` and `2025`
 

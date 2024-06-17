@@ -7,4 +7,10 @@ namespace ricaun.DA4R.NUnit.Tests
         interface IProjectInfo : IElement<ProjectInfo> { }
         interface IElement<T> where T : Element { }
     }
+
+    public class ForgeTypeIdTests
+    {
+        interface IForgeTypeId : IElement<ForgeTypeId> { }
+        interface IElement<T> where T : ForgeTypeId { }
+    }
 }
