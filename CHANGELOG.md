@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Show test fail if not test if found in the output.
 ### Tests
 - Test `2024` and `2025`
+- Add `ProjectInfoTests` and `ForgeTypeIdTests` to test `RevitAPI` reference.
 
 ## [1.1.4] / 2024-01-29 - 2024-02-15
 ### Application
