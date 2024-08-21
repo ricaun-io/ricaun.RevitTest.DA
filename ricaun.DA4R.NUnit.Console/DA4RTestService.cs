@@ -19,8 +19,18 @@ namespace ricaun.DA4R.NUnit.Console
 
         private void LogApplicationInfo()
         {
-            var name = this.GetType().Assembly.GetName();
-            Log.WriteLine($"{name.Name} {name.Version!.ToString(3)}");
+            var assembly = this.GetType().Assembly;
+            var name = assembly.GetName();
+            var version = name.Version!.ToString(3);
+
+            try
+            {
+                var fileVersionInfo = System.Diagnostics.FileVersionInfo.GetVersionInfo(assembly.Location);
+                version = fileVersionInfo.ProductVersion.Split('+')[0];
+            }
+            catch { }
+
+            Log.WriteLine($"{name.Name} {version}");
         }
 
         public string[] GetTests(string filePath)
@@ -36,7 +46,13 @@ namespace ricaun.DA4R.NUnit.Console
                 }
             }
             catch { }
-            return TestEngine.GetTestFullNames(filePath);
+
+            var baseTests = TestEngine.GetTestFullNames(filePath);
+            if (baseTests.Length == 0)
+            {
+                Log.WriteLine($"ERROR: TestEngine.GetTestFullNames is empty, some class is breaking.");
+            }
+            return baseTests;
         }
 
         public bool RunTests(
@@ -177,6 +193,11 @@ namespace ricaun.DA4R.NUnit.Console
             if (result == false)
             {
                 throw new Exception("Run Fail - Timeout? CheckLog?");
+            }
+
+            if (output.Tests.Count == 0)
+            {
+                throw new Exception("Run Fail - No tests found in the output.");
             }
         }
 
