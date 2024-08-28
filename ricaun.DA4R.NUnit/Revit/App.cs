@@ -3,6 +3,8 @@ using Autodesk.Revit.DB;
 using DesignAutomationFramework;
 using ricaun.DA4R.NUnit.Services;
 using System;
+using System.Reflection;
+using System.Runtime.Versioning;
 
 namespace ricaun.DA4R.NUnit.Revit
 {
@@ -13,6 +15,7 @@ namespace ricaun.DA4R.NUnit.Revit
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine(this.GetType().Assembly.FullName);
             Console.WriteLine(typeof(ricaun.NUnit.TestEngine).Assembly.FullName);
+            Console.WriteLine($"Framework: {typeof(App).Assembly.GetCustomAttribute<TargetFrameworkAttribute>()?.FrameworkName}");
             Console.WriteLine("--------------------------------------------------");
 
             DesignAutomationBridge.DesignAutomationReadyEvent += DesignAutomationBridge_DesignAutomationReadyEvent;
