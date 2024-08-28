@@ -12,11 +12,9 @@ using System;
 #endif
 #endif
 
-//[assembly: System.Reflection.AssemblyMetadata("NUnit.Application", @"D:\Users\ricau\source\repos\ricaun.DA4R.NUnit\ricaun.DA4R.NUnit.Console\bin\Debug\ricaun.DA4R.NUnit.Console.exe")]
-//[assembly: System.Reflection.AssemblyMetadata("NUnit.Application", @"..\..\..\..\ricaun.DA4R.NUnit.Console\bin\Debug\ricaun.DA4R.NUnit.Console.exe")]
-
-//[assembly: System.Reflection.AssemblyMetadata("NUnit.Application", "D:\\Users\\ricau\\source\\repos\\ricaun.DA4R.NUnit\\ricaun.DA4R.NUnit\\bin\\ReleaseFiles\\ricaun.DA4R.NUnit.Console.zip")]
-
+#if DEBUG
+[assembly: System.Reflection.AssemblyMetadata("NUnit.Application", "..\\..\\..\\..\\ricaun.DA4R.NUnit\\bin\\ReleaseFiles\\ricaun.DA4R.NUnit.Console.zip")]
+#endif
 
 namespace ricaun.DA4R.NUnit.Tests
 {
@@ -26,6 +24,24 @@ namespace ricaun.DA4R.NUnit.Tests
 
         [OneTimeSetUp]
         public void Setup(Application application)
+        {
+            this.application = application;
+        }
+
+        [Test]
+        public void RevitTests()
+        {
+            Assert.IsNotNull(application);
+            Console.WriteLine(application.VersionBuild);
+        }
+    }
+
+    public class ControlledTests
+    {
+        private ControlledApplication application;
+
+        [OneTimeSetUp]
+        public void Setup(ControlledApplication application)
         {
             this.application = application;
         }

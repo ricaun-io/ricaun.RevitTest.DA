@@ -4,6 +4,8 @@ using ricaun.DA4R.NUnit.Models;
 using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.Versioning;
 
 namespace ricaun.DA4R.NUnit.Services
 {
@@ -16,6 +18,10 @@ namespace ricaun.DA4R.NUnit.Services
 
         public static bool Execute(Application application, string filePath, Document revitDoc)
         {
+            RevitParameters.AddParameter(application, application.GetControlledApplication());
+
+            Console.WriteLine($"Execute: {typeof(DesignAutomationController).Assembly.GetCustomAttribute<TargetFrameworkAttribute>()?.FrameworkName}");
+
             var output = new OutputModel();
 
             output.VersionName = application.VersionName;
