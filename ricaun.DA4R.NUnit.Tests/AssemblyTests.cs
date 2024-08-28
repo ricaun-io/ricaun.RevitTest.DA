@@ -1,12 +1,8 @@
 ﻿using Autodesk.Revit.DB;
 using NUnit.Framework;
 using System;
-using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Security.AccessControl;
-using System.Security.Principal;
-using System.Text;
 
 namespace ricaun.DA4R.NUnit.Tests
 {
