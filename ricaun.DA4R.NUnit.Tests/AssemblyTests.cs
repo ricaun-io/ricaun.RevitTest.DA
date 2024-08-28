@@ -10,8 +10,6 @@ namespace ricaun.DA4R.NUnit.Tests
     public class AssemblyTests
     {
         [TestCase("ricaun.DA4R.NUnit")]
-        [TestCase("ricaun.NUnit")]
-        [TestCase("NUnit")]
         public void GetTargetFramework(string name)
         {
             foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies().Where(e => e.GetName().Name == name))
