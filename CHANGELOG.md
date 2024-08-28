@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add `TargetFramework` in `DesignAutomationController`
 ### Console
 - Update `ricaun.Autodesk.Forge.Oss.DesignAutomation` to `2.0.0`
+### Tests
+- Add `Assembly` with location and `TargetFramework`.
 
 ## [1.2.0] / 2024-04-05 - 2024-08-20
 ### Application

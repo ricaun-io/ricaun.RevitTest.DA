@@ -3,11 +3,23 @@ using NUnit.Framework;
 using System;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Versioning;
 
 namespace ricaun.DA4R.NUnit.Tests
 {
     public class AssemblyTests
     {
+        [TestCase("ricaun.DA4R.NUnit")]
+        public void GetTargetFrameworkk(string name)
+        {
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies().Where(e=>e.GetName().Name == name))
+            {
+                var framework = assembly.GetCustomAttribute<TargetFrameworkAttribute>()?.FrameworkName;
+                Console.WriteLine($"{name} \t{framework}");
+                Console.WriteLine($"{assembly.Location}");
+            }
+        }
+
         [Test]
         public void GetLocation()
         {
