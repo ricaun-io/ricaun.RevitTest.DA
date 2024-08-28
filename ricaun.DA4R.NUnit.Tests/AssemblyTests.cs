@@ -9,10 +9,10 @@ namespace ricaun.DA4R.NUnit.Tests
 {
     public class AssemblyTests
     {
-        [TestCase("ricaun.DA4R.NUnit")]
-        public void GetTargetFrameworkk(string name)
+        [TestCase("ricaun.DA4R.NUnit", "ricaun.NUnit", "NUnit")]
+        public void GetTargetFramework(string name)
         {
-            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies().Where(e=>e.GetName().Name == name))
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies().Where(e => e.GetName().Name == name))
             {
                 var framework = assembly.GetCustomAttribute<TargetFrameworkAttribute>()?.FrameworkName;
                 Console.WriteLine($"{name} \t{framework}");
