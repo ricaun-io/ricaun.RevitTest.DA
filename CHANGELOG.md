@@ -5,9 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [2.0.0] / 2024-08-20
+### Features
+- Support bundle multiple version of `Revit`.
 ### Application
 - Move `RevitParameters` to `DesignAutomationController`
 - Add `TargetFramework` in `DesignAutomationController`
+- Update `App` to use `DesignAutomationLoadVersion` to load correct assembly in the bundle.
 ### Console
 - Update `ricaun.Autodesk.Forge.Oss.DesignAutomation` to `2.0.0`
 ### Tests
