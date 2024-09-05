@@ -3,6 +3,7 @@ using Autodesk.Revit.DB;
 using NUnit.Framework;
 using System;
 
+[assembly: System.Reflection.AssemblyMetadata("NUnit.Timeout", "5")] // Set timeout 5 minutes
 [assembly: System.Reflection.AssemblyMetadata("NUnit.Verbosity", "3")]
 #if !DEBUG
 [assembly: System.Reflection.AssemblyMetadata("NUnit.Application", "RICAUN_REVIT_TEST_APPLICATION_DA4R_ONLINE_TEST")]

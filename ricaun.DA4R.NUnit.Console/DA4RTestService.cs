@@ -16,6 +16,7 @@ namespace ricaun.DA4R.NUnit.Console
     public class DA4RTestService : IRunTestService
     {
         private const int MINIMAL_ENGINE_VERSION = 2018;
+        private const int TIMEOUT_MINUTES = 10;
 
         private void LogApplicationInfo()
         {
@@ -55,16 +56,15 @@ namespace ricaun.DA4R.NUnit.Console
             return baseTests;
         }
 
-        public bool RunTests(
-            string fileToTest,
+        public bool RunTests(string fileToTest,
             int revitVersionNumber,
             Action<string> actionOutput = null,
             string forceLanguageToRevit = null,
             bool forceToOpenNewRevit = false,
-            bool forceToWaitRevit = false,
             bool forceToCloseRevit = false,
+            int timeoutMinutes = 0,
             params string[] testFilters)
-        {
+        { 
             LogApplicationInfo();
 
             if (revitVersionNumber == 0)
@@ -97,7 +97,7 @@ namespace ricaun.DA4R.NUnit.Console
             {
                 try
                 {
-                    await Run(fileToTest, revitVersionNumber, forceLanguageToRevit, actionOutput);
+                    await Run(fileToTest, revitVersionNumber, forceLanguageToRevit, timeoutMinutes, actionOutput);
                     return true;
                 }
                 catch (Exception ex)
@@ -122,13 +122,16 @@ namespace ricaun.DA4R.NUnit.Console
             return TestExceptionUtils.CreateTestAssemblyModelWithException(fileToTest, testNames, exception);
         }
 
-        private async Task Run(string filePath, int revitVersionNumber, string revitLanguage, Action<string> actionOutput)
+        private async Task Run(string filePath, int revitVersionNumber, string revitLanguage, double timeoutMinutes, Action<string> actionOutput)
         {
 
             revitLanguage = LanguageUtils.GetArgument(revitLanguage);
 
             Log.WriteLine($"Version: {revitVersionNumber}");
             Log.WriteLine($"Language: {revitLanguage}");
+
+            if (timeoutMinutes <= 0) timeoutMinutes = TIMEOUT_MINUTES;
+            if (timeoutMinutes != TIMEOUT_MINUTES) Log.WriteLine($"Timeout: {timeoutMinutes} minutes");
 
             if (!Path.GetExtension(filePath).EndsWith("dll"))
             {
@@ -150,7 +153,7 @@ namespace ricaun.DA4R.NUnit.Console
                 EnableConsoleLogger = Log.Enabled,
                 //EnableParameterConsoleLogger = true,
                 EnableReportConsoleLogger = Log.Enabled,
-                RunTimeOutMinutes = 10.0, //10.0,
+                RunTimeOutMinutes = timeoutMinutes,
                 ForgeEnvironment = App.ForgeEnvironment,
             };
 

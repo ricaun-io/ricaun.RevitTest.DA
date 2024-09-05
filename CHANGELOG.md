@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Update `App` to use `DesignAutomationLoadVersion` to load correct assembly in the bundle.
 ### Console
 - Update `ricaun.Autodesk.Forge.Oss.DesignAutomation` to `2.0.0`
+- Update `ricaun.Revit.Command` to version `1.4.0` to support `Timeout`.
 ### Tests
 - Add `Assembly` with location and `TargetFramework`.
 
