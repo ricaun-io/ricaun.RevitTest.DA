@@ -26,7 +26,7 @@
 
   <ItemGroup>
     <PackageReference Include="ricaun.Revit.Installation" Version="*" />
-    <PackageReference Include="ricaun.RevitTest.Command" Version="*-*" />
+    <PackageReference Include="ricaun.RevitTest.Command" Version="*" />
     <PackageReference Include="ricaun.Autodesk.Forge.Oss.DesignAutomation" Version="*" />
   </ItemGroup>
 
