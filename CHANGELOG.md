@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Move `RevitParameters` to `DesignAutomationController`
 - Add `TargetFramework` in `DesignAutomationController`
 - Update `App` to use `DesignAutomationLoadVersion` to load correct assembly in the bundle.
+- Update `ricaun.NUnit` to version `1.4.0-beta.2`, `CaseSource` and `ExportedTypes` support.
 ### Console
 - Update `ricaun.Autodesk.Forge.Oss.DesignAutomation` to `2.0.0`
 - Update `ricaun.Revit.Command` to version `1.4.*` to support `Timeout`.

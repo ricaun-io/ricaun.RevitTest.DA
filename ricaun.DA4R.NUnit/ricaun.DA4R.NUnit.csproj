@@ -84,7 +84,7 @@
   <PropertyGroup>
     <Company>ricaun</Company>
     <Authors>Luiz Henrique Cassettari</Authors>
-    <Description>Revit Add-In Description for $(PackageId).</Description>
+    <Description>DA4R application to run NUnit tests.</Description>
     <CopyrightYears>$([System.DateTime]::Now.ToString('yyyy'))</CopyrightYears>
   </PropertyGroup>
 
@@ -95,7 +95,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ricaun.NUnit" Version="*" />
+    <PackageReference Include="ricaun.NUnit" Version="*-*" />
   </ItemGroup>
 
   <ItemGroup>
