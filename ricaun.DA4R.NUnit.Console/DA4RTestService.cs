@@ -43,12 +43,20 @@ namespace ricaun.DA4R.NUnit.Console
                 if (Directory.Exists(directoryResolver))
                 {
                     var result = TestEngine.GetTestFullNames(filePath, directoryResolver);
+
+                    foreach (var ex in TestEngine.Exceptions)
+                        Log.WriteLine($"ERROR: {ex.Message}");
+
                     if (result.Length > 0) return result;
                 }
             }
             catch { }
 
             var baseTests = TestEngine.GetTestFullNames(filePath);
+
+            foreach (var ex in TestEngine.Exceptions)
+                Log.WriteLine($"ERROR: {ex.Message}");
+
             if (baseTests.Length == 0)
             {
                 Log.WriteLine($"ERROR: TestEngine.GetTestFullNames is empty, some class is breaking.");
@@ -64,7 +72,7 @@ namespace ricaun.DA4R.NUnit.Console
             bool forceToCloseRevit = false,
             int timeoutMinutes = 0,
             params string[] testFilters)
-        { 
+        {
             LogApplicationInfo();
 
             if (revitVersionNumber == 0)
