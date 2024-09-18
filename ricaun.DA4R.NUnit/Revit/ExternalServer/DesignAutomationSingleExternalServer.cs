@@ -21,8 +21,8 @@ namespace ricaun.DA4R.NUnit.Revit.ExternalServer
         {
             this.designAutomation = designAutomation;
         }
-        public ExternalServiceId ServiceId { get; } = new ExternalServiceId(new Guid("9419DFAC-3441-4445-A908-AFDE709C6E6B"));
-        public Guid ServerId { get; } = new Guid("9419DFAC-3441-4445-A908-AFDE709C6E6C");
+        public ExternalServiceId ServiceId { get; } = new ExternalServiceId(Guid.NewGuid());
+        public Guid ServerId { get; } = Guid.NewGuid();
 
         #region ExecuteService
 
