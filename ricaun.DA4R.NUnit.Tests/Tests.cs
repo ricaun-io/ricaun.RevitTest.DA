@@ -29,7 +29,8 @@ namespace ricaun.DA4R.NUnit.Tests
         public void RevitTests()
         {
             Assert.IsNotNull(application);
-            Console.WriteLine(application.VersionBuild);
+            Console.WriteLine($"VersionBuild: {application.VersionBuild}");
+            Console.WriteLine($"ActiveAddInId: \t{application.ActiveAddInId?.GetAddInName()} \t{application.ActiveAddInId?.GetGUID()}");
         }
     }
 
@@ -47,7 +48,8 @@ namespace ricaun.DA4R.NUnit.Tests
         public void RevitTests()
         {
             Assert.IsNotNull(application);
-            Console.WriteLine(application.VersionBuild);
+            Console.WriteLine($"VersionBuild: {application.VersionBuild}");
+            Console.WriteLine($"ActiveAddInId: \t{application.ActiveAddInId?.GetAddInName()} \t{application.ActiveAddInId?.GetGUID()}");
         }
     }
 }

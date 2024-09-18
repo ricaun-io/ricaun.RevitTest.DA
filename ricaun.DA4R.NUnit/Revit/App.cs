@@ -1,31 +1,22 @@
 ﻿using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.DB;
 using ricaun.DA4R.NUnit.Services;
-using System;
-using System.Reflection;
-using System.Runtime.Versioning;
 
 namespace ricaun.DA4R.NUnit.Revit
 {
-    public class App : IExternalDBApplication
+    public class App : DesignApplication
     {
-        IDisposable designAutomation;
-        public ExternalDBApplicationResult OnStartup(ControlledApplication application)
+        public override void OnStartup()
         {
-            Console.WriteLine("--------------------------------------------------");
-            Console.WriteLine(this.GetType().Assembly.FullName);
-            Console.WriteLine($"Framework: {typeof(App).Assembly.GetCustomAttribute<TargetFrameworkAttribute>()?.FrameworkName}");
-            Console.WriteLine("--------------------------------------------------");
-
-            designAutomation = new DesignAutomationLoadVersion<DesignAutomationController>();
-            return ExternalDBApplicationResult.Succeeded;
+            
         }
-
-        public ExternalDBApplicationResult OnShutdown(ControlledApplication application)
+        public override void OnShutdown()
         {
-            designAutomation?.Dispose();
-            Console.WriteLine("--------------------------------------------------");
-            return ExternalDBApplicationResult.Succeeded;
+            
+        }
+        public override bool Execute(Application application, string filePath, Document document)
+        {
+            return new DesignAutomationController().Execute(application, filePath, document);
         }
     }
 }
