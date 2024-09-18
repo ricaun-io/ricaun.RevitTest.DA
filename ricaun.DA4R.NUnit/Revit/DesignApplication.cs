@@ -76,7 +76,7 @@ namespace ricaun.DA4R.NUnit.Revit
             var data = e.DesignAutomationData;
 
             Console.WriteLine("--------------------------------------------------");
-            Console.WriteLine($"RevitApp: {data.RevitApp} \tFilePath: {data.FilePath} \tRevitDoc: {data.RevitDoc} \nAddInName:{data.RevitApp.ActiveAddInId?.GetAddInName()}");
+            Console.WriteLine($"RevitApp: {data.RevitApp} \tFilePath: {data.FilePath} \tRevitDoc: {data.RevitDoc} \tAddInName:{data.RevitApp.ActiveAddInId?.GetAddInName()}");
             Console.WriteLine("--------------------------------------------------");
 
             if (externalServer is not null && UseExternalService)
