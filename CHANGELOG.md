@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add `ExternalServer` to force `DesignAutomationReadyEvent` event to trigger inside the server and execute with a valid `ActiveAddInId`.
 ### Console
 - Update `ricaun.Autodesk.Forge.Oss.DesignAutomation` to `2.0.0`
+- Update `ricaun.Revit.Command` to version `1.5.*` to support `TestCaseSource`.
 - Update `ricaun.Revit.Command` to version `1.4.*` to support `Timeout`.
 ### Tests
 - Add `Assembly` with location and `TargetFramework`.
