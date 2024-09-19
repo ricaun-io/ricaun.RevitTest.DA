@@ -1,7 +1,7 @@
 ﻿using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.DB;
 
-namespace  ricaun.DA4R.NUnit.Revit
+namespace ricaun.DA4R.NUnit.Revit.DA
 {
     public interface IDesignAutomation
     {

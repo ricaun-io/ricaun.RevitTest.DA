@@ -4,7 +4,7 @@ using DesignAutomationFramework;
 using ricaun.DA4R.NUnit.Revit.ExternalServer;
 using System;
 
-namespace ricaun.DA4R.NUnit.Revit
+namespace ricaun.DA4R.NUnit.Revit.DA
 {
     public abstract class DesignApplication : IExternalDBApplication, IDesignAutomation
     {
@@ -21,7 +21,7 @@ namespace ricaun.DA4R.NUnit.Revit
         private DesignAutomationSingleExternalServer externalServer;
         public ExternalDBApplicationResult OnStartup(ControlledApplication application)
         {
-            this.Application = application;
+            Application = application;
 
             designApplication = DesignApplicationLoader.LoadVersion(this);
 
@@ -31,12 +31,18 @@ namespace ricaun.DA4R.NUnit.Revit
             }
 
             Console.WriteLine("----------------------------------------");
-            Console.WriteLine($"FullName: \t{this.GetType().Assembly.FullName}");
-            Console.WriteLine($"AddInName: \t{this.Application.ActiveAddInId?.GetAddInName()}");
+            Console.WriteLine($"FullName: \t{GetType().Assembly.FullName}");
+            Console.WriteLine($"AddInName: \t{Application.ActiveAddInId?.GetAddInName()}");
             Console.WriteLine("----------------------------------------");
 
-            externalServer = new DesignAutomationSingleExternalServer(this);
-            externalServer.Register();
+            try
+            {
+                externalServer = new DesignAutomationSingleExternalServer(this).Register();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"DesignAutomationSingleExternalServer: \t{ex.Message}");
+            }
 
             OnStartup();
             DesignAutomationBridge.DesignAutomationReadyEvent += DesignAutomationReadyEvent;
@@ -46,7 +52,7 @@ namespace ricaun.DA4R.NUnit.Revit
 
         public ExternalDBApplicationResult OnShutdown(ControlledApplication application)
         {
-            this.Application = application;
+            Application = application;
 
             if (designApplication is IExternalDBApplication)
             {
@@ -60,7 +66,7 @@ namespace ricaun.DA4R.NUnit.Revit
                 }
             }
 
-            externalServer.RemoveServer();
+            externalServer?.RemoveServer();
 
             OnShutdown();
             DesignAutomationBridge.DesignAutomationReadyEvent -= DesignAutomationReadyEvent;

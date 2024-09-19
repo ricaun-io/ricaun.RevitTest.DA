@@ -1,7 +1,6 @@
 ﻿using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.DB;
 using ricaun.DA4R.NUnit.Models;
-using ricaun.DA4R.NUnit.Revit;
 using System;
 using System.Diagnostics;
 using System.Linq;
@@ -10,7 +9,7 @@ using System.Runtime.Versioning;
 
 namespace ricaun.DA4R.NUnit.Services
 {
-    public class DesignAutomationController : IDesignAutomation
+    public class DesignAutomationController
     {
         public bool Execute(Application application, string filePath = null, Document revitDoc = null)
         {

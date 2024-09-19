@@ -12,12 +12,14 @@ namespace ricaun.DA4R.NUnit.Tests
         [TestCase("ricaun.DA4R.NUnit")]
         public void GetTargetFramework(string name)
         {
-            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies().Where(e => e.GetName().Name == name))
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(e => e.GetName().Name == name);
+            foreach (var assembly in assemblies)
             {
                 var framework = assembly.GetCustomAttribute<TargetFrameworkAttribute>()?.FrameworkName;
                 Console.WriteLine($"{name} \t{framework}");
                 Console.WriteLine($"{assembly.Location}");
             }
+            Assert.AreEqual(2, assemblies.Count());
         }
 
         [Test]

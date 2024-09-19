@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Versioning;
 
-namespace ricaun.DA4R.NUnit.Revit
+namespace ricaun.DA4R.NUnit.Revit.DA
 {
     internal static class DesignApplicationLoader
     {
