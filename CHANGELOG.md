@@ -4,14 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [2.0.0] / 2024-08-20
+## [2.0.0] / 2024-08-20 - 2024-09-19
 ### Features
 - Support bundle multiple version of `Revit`.
 ### Application
 - Move `RevitParameters` to `DesignAutomationController`
 - Add `TargetFramework` in `DesignAutomationController`
 - Update `App` to use abstract `DesignApplication` to load correct assembly in the bundle.
-- Update `ricaun.NUnit` to version `1.4.0-rc.1`, `CaseSource` and `ExportedTypes` support.
+- Update `ricaun.NUnit` to version `1.4.0`, `CaseSource` and `ExportedTypes` support.
 - Add `ExternalServer` to force `DesignAutomationReadyEvent` event to trigger inside the server and execute with a valid `ActiveAddInId`.
 ### Console
 - Update `ricaun.Autodesk.Forge.Oss.DesignAutomation` to `2.0.0`
