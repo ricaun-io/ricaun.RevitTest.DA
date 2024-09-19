@@ -21,7 +21,7 @@ namespace ricaun.DA4R.NUnit.Revit.UI.Commands
             {
                 var path = @"Resources\SampleTest.zip";
                 CopyFile(path);
-                DesignAutomationController.Execute(uiapp.Application);
+                new DesignAutomationController().Execute(uiapp.Application);
             }
 
             return Result.Succeeded;

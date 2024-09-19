@@ -4,18 +4,20 @@ using ricaun.DA4R.NUnit.Models;
 using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.Versioning;
 
 namespace ricaun.DA4R.NUnit.Services
 {
     public class DesignAutomationController
     {
-        public static bool Execute(Application revitApp)
+        public bool Execute(Application application, string filePath = null, Document revitDoc = null)
         {
-            return Execute(revitApp, null, null);
-        }
+            RevitParameters.AddParameter(application, application.GetControlledApplication());
 
-        public static bool Execute(Application application, string filePath, Document revitDoc)
-        {
+            Console.WriteLine($"Execute: {typeof(DesignAutomationController).Assembly.GetCustomAttribute<TargetFrameworkAttribute>()?.FrameworkName}");
+            Console.WriteLine($"TestEngine: {typeof(ricaun.NUnit.TestEngine).Assembly.FullName}");
+
             var output = new OutputModel();
 
             output.VersionName = application.VersionName;

@@ -16,7 +16,6 @@
   <!-- RevitVersion -->
   <PropertyGroup>
     <TargetFrameworks>net47;net48;net8.0-windows</TargetFrameworks>
-    <!--<TargetFrameworks>net8.0-windows</TargetFrameworks>-->
   </PropertyGroup>
   <Choose>
     <When Condition="$(TargetFramework.StartsWith('net47'))">
@@ -85,7 +84,7 @@
   <PropertyGroup>
     <Company>ricaun</Company>
     <Authors>Luiz Henrique Cassettari</Authors>
-    <Description>Revit Add-In Description for $(PackageId).</Description>
+    <Description>DA4R application to run NUnit tests.</Description>
     <CopyrightYears>$([System.DateTime]::Now.ToString('yyyy'))</CopyrightYears>
   </PropertyGroup>
 
@@ -96,12 +95,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ricaun.NUnit" Version="*" />
-    <!--
-    <Reference Include="ricaun.NUnit.1.0.9">
-      <HintPath>..\..\..\..\Documents\GitHub\ricaun-io\ricaun.NUnit\ricaun.NUnit\bin\Release\ricaun.NUnit.1.0.9.dll</HintPath>
-    </Reference>
-    -->
+    <PackageReference Include="ricaun.NUnit" Version="*-*" />
   </ItemGroup>
 
   <ItemGroup>

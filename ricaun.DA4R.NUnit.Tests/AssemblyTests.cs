@@ -1,17 +1,27 @@
 ﻿using Autodesk.Revit.DB;
 using NUnit.Framework;
 using System;
-using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Security.AccessControl;
-using System.Security.Principal;
-using System.Text;
+using System.Runtime.Versioning;
 
 namespace ricaun.DA4R.NUnit.Tests
 {
     public class AssemblyTests
     {
+        [TestCase("ricaun.DA4R.NUnit")]
+        public void GetTargetFramework(string name)
+        {
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(e => e.GetName().Name == name);
+            foreach (var assembly in assemblies)
+            {
+                var framework = assembly.GetCustomAttribute<TargetFrameworkAttribute>()?.FrameworkName;
+                Console.WriteLine($"{name} \t{framework}");
+                Console.WriteLine($"{assembly.Location}");
+            }
+            Assert.AreEqual(2, assemblies.Count());
+        }
+
         [Test]
         public void GetLocation()
         {

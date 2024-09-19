@@ -99,14 +99,21 @@ namespace ricaun.DA4R.NUnit.Services
                             catch { }
                         }
 
+                        foreach (var ex in TestEngine.Exceptions)
+                        {
+                            Console.WriteLine($"Exception: {ex}");
+                        }
+
                         output.Tests.Add(modelTest);
                     }
 
                 }
                 catch (Exception ex)
                 {
+                    var testFail = new Exception($"Test File: {fileName}", ex);
+                    var testFailModel = TestEngine.Fail(filePath, testFail);
+                    output.Tests.Add(testFailModel);
                     Console.WriteLine($"{fileName} {ex}");
-                    // output.Tests.Add(fileName);
                 }
             }
         }
