@@ -36,21 +36,7 @@ namespace ricaun.DA4R.NUnit.Console
 
         public string[] GetTests(string filePath)
         {
-            try
-            {
-                LogApplicationInfo();
-                var directoryResolver = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), App.DirectoryResolver);
-                if (Directory.Exists(directoryResolver))
-                {
-                    var result = TestEngine.GetTestFullNames(filePath, directoryResolver);
-
-                    foreach (var ex in TestEngine.Exceptions)
-                        Log.WriteLine($"ERROR: {ex.Message}");
-
-                    if (result.Length > 0) return result;
-                }
-            }
-            catch { }
+            LogApplicationInfo();
 
             var baseTests = TestEngine.GetTestFullNames(filePath);
 

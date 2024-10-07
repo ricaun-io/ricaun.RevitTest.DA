@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] / 2024-10-07
+### Features
+- Update to use `ricaun.RevitAPI.Fake.References`.
+- Update `RevitTest` version to `1.6.0`.
+### Console
+- Remove `DirectoryResolver` and physical path to `RevitAPI` and `RevitAPIUI`.
+- Remove `References` folder.
+
 ## [2.0.0] / 2024-08-20 - 2024-09-19
 ### Features
 - Support bundle multiple version of `Revit`.
@@ -133,7 +141,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TestAssembly in `*.zip` and `output.json`
 
 [vNext]: ../../compare/1.0.0...HEAD
-[2.0.0]: ../../compare/1.2.0...2.0.0]
+[2.1.0]: ../../compare/2.0.0...2.1.0
+[2.0.0]: ../../compare/1.2.0...2.0.0
 [1.2.0]: ../../compare/1.1.4...1.2.0
 [1.1.4]: ../../compare/1.1.3...1.1.4
 [1.1.3]: ../../compare/1.1.2...1.1.3
