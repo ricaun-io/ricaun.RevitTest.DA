@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Update `RevitTest` version to `1.6.0`.
 ### Console
 - Remove `DirectoryResolver` and physical path to `RevitAPI` and `RevitAPIUI`.
+- Remove `References` folder.
 
 ## [2.0.0] / 2024-08-20 - 2024-09-19
 ### Features
