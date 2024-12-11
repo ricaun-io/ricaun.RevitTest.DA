@@ -95,7 +95,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ricaun.NUnit" Version="*-*" />
+    <PackageReference Include="ricaun.NUnit" Version="*" />
   </ItemGroup>
 
   <ItemGroup>
