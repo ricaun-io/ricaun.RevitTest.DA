@@ -141,13 +141,7 @@ namespace ricaun.DA4R.NUnit.Console
             Log.WriteLine($"Oss.DesignAutomation: {typeof(IDesignAutomationService).Assembly.GetName().Version.ToString(3)}");
             Log.WriteLine("-------------------------------------");
 
-            var forgeConfiguration = new Autodesk.Forge.Core.ForgeConfiguration()
-            {
-                ClientId = App.ForgeClientId,
-                ClientSecret = App.ForgeClientSecret,
-            };
-
-            IDesignAutomationService designAutomationService = new RevitDesignAutomationService(App.Name, forgeConfiguration)
+            IDesignAutomationService designAutomationService = new RevitDesignAutomationService(App.Name)
             {
                 EngineVersions = new[] { revitVersionNumber.ToString() },
                 EnableConsoleLogger = Log.Enabled,
@@ -155,7 +149,6 @@ namespace ricaun.DA4R.NUnit.Console
                 EnableReportConsoleLogger = Log.Enabled,
                 RunTimeOutMinutes = timeoutMinutes,
                 ForgeEnvironment = App.ForgeEnvironment,
-                CustomHeaderValue = App.ForgeClientCustomHeaderValue,
             };
 
             await designAutomationService.Initialize(App.Bundle);
