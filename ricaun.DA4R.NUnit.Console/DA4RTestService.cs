@@ -15,7 +15,7 @@ namespace ricaun.DA4R.NUnit.Console
 {
     public class DA4RTestService : IRunTestService
     {
-        private const int MINIMAL_ENGINE_VERSION = 2018;
+        private const int MINIMAL_ENGINE_VERSION = 2019;
         private const int TIMEOUT_MINUTES = 10;
 
         private void LogApplicationInfo()

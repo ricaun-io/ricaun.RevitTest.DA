@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [3.0.0] / 2024-12-11
 ### Features
+- Remove version `2018` support.
 ### Consoles
 - Update `ricaun.Autodesk.Forge.Oss.DesignAutomation` to `3.0.0`.
 - Remove local environment variables.
@@ -160,7 +161,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TestAssembly in `*.zip` and `output.json`
 
 [vNext]: ../../compare/1.0.0...HEAD
-[2.3.0]: ../../compare/2.2.1...3.0.0
+[3.0.0]: ../../compare/2.2.1...3.0.0
 [2.2.1]: ../../compare/2.2.0...2.2.1
 [2.2.0]: ../../compare/2.1.0...2.2.0
 [2.1.0]: ../../compare/2.0.0...2.1.0

@@ -19,7 +19,11 @@ namespace ricaun.DA4R.NUnit.Tests
                 Console.WriteLine($"{name} \t{framework}");
                 Console.WriteLine($"{assembly.Location}");
             }
+#if REVIT2019
+            Assert.AreEqual(1, assemblies.Count());
+#else
             Assert.AreEqual(2, assemblies.Count());
+#endif
         }
 
         [Test]

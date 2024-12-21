@@ -13,19 +13,11 @@
 
   <!-- RevitVersion -->
   <PropertyGroup>
-    <!--
-    <TargetFrameworks>net8.0-windows</TargetFrameworks>
-    -->
-    <TargetFrameworks>net48;net8.0-windows</TargetFrameworks>
+    <TargetFrameworks>net47;net48;net8.0-windows</TargetFrameworks>
     <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
   </PropertyGroup>
   <Choose>
-    <When Condition="$(TargetFramework.StartsWith('net46'))">
-      <PropertyGroup>
-        <RevitVersion>2017</RevitVersion>
-      </PropertyGroup>
-    </When>
     <When Condition="$(TargetFramework.StartsWith('net47'))">
       <PropertyGroup>
         <RevitVersion>2019</RevitVersion>
@@ -71,6 +63,10 @@
     <PackageReference Include="NUnit" Version="3.13.3" />
     <PackageReference Include="ricaun.RevitTest.TestAdapter" Version="*-*" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RevitVersion.DefineConstants" Version="*-*" />
   </ItemGroup>
 
   <!--<ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">

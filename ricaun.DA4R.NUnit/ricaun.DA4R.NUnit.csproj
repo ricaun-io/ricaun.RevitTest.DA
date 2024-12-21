@@ -20,7 +20,7 @@
   <Choose>
     <When Condition="$(TargetFramework.StartsWith('net47'))">
       <PropertyGroup>
-        <RevitVersion>2018</RevitVersion>
+        <RevitVersion>2019</RevitVersion>
       </PropertyGroup>
     </When>
     <When Condition="$(TargetFramework.StartsWith('net48'))">
