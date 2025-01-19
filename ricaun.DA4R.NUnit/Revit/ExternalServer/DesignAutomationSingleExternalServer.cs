@@ -12,8 +12,8 @@ namespace ricaun.DA4R.NUnit.Revit.ExternalServer
     /// </summary>
     /// <remarks>
     /// This external server is used to execute IDesignAutomation when DesignAutomationReadyEvent is triggered. 
-    /// Becouse the external server is registered before the Revit finish initialize the executed service run in the same ActiveAddIn when the external service is registered.
-    /// Fix the issue that DesignAutomationReadyEvent trigges without the ActiveAddIn context.
+    /// Because the external server is registered before the Revit finish initialize the executed service run in the same ActiveAddIn when the external service is registered.
+    /// Fix the issue that DesignAutomationReadyEvent triggers without the ActiveAddIn context.
     /// </remarks>
     public class DesignAutomationSingleExternalServer : ISingleServerService, IDesignAutomationExternalServer
     {
