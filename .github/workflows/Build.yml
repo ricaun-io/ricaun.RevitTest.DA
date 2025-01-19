@@ -26,3 +26,6 @@ jobs:
           SignFile: ${{ secrets.SIGN_FILE }}
           SignPassword: ${{ secrets.SIGN_PASSWORD }}
           InstallationFiles: ${{ secrets.INSTALLATION_FILES }}
+
+          AssetsUploadAddress: ${{ secrets.RICAUN_ASSETS_UPLOAD_ADDRESS }}
+          AssetsUploadAuthorization: ${{ secrets.RICAUN_ASSETS_UPLOAD_AUTHORIZATION }}
