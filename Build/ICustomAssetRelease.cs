@@ -34,7 +34,7 @@ public interface ICustomAssetRelease : IHazRelease, IRelease, INukeBuild, IHazAs
         {
             try
             {
-                var result = HttpAuthTasks.HttpPostFile(AssetsUploadAddress, file, AssetsUploadAuthorization);
+                var result = HttpAuthTasks2.HttpPostFile(AssetsUploadAddress, file, AssetsUploadAuthorization);
                 ReportSummary(_ => _.AddPair("File", file.Name));
                 Serilog.Log.Warning($"Upload File: {file.Name} => {result}");
             }
