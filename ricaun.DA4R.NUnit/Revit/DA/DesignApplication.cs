@@ -12,7 +12,7 @@ namespace ricaun.DA4R.NUnit.Revit.DA
         /// Use ExternalService to execute the IDesignAutomation.Execute, this make the Execute run in the AddIn context.
         /// </summary>
         public virtual bool UseExternalService => true;
-        public ControlledApplication Application { get; private set; }
+        public ControlledApplication ControlledApplication { get; private set; }
         public abstract void OnStartup();
         public abstract void OnShutdown();
         public abstract bool Execute(Application application, string filePath, Document document);
@@ -21,7 +21,7 @@ namespace ricaun.DA4R.NUnit.Revit.DA
         private DesignAutomationSingleExternalServer externalServer;
         public ExternalDBApplicationResult OnStartup(ControlledApplication application)
         {
-            Application = application;
+            ControlledApplication = application;
 
             designApplication = DesignApplicationLoader.LoadVersion(this);
 
@@ -32,7 +32,7 @@ namespace ricaun.DA4R.NUnit.Revit.DA
 
             Console.WriteLine("----------------------------------------");
             Console.WriteLine($"FullName: \t{GetType().Assembly.FullName}");
-            Console.WriteLine($"AddInName: \t{Application.ActiveAddInId?.GetAddInName()}");
+            Console.WriteLine($"AddInName: \t{ControlledApplication.ActiveAddInId?.GetAddInName()}");
             Console.WriteLine("----------------------------------------");
 
             try
@@ -52,7 +52,7 @@ namespace ricaun.DA4R.NUnit.Revit.DA
 
         public ExternalDBApplicationResult OnShutdown(ControlledApplication application)
         {
-            Application = application;
+            ControlledApplication = application;
 
             if (designApplication is IExternalDBApplication)
             {

@@ -139,7 +139,6 @@
         "Compile",
         "GitPreRelease",
         "GitRelease",
-        "LocalAssetRelease",
         "PackageBuilder",
         "Release",
         "Sign"
@@ -216,9 +215,6 @@
   "allOf": [
     {
       "properties": {
-        "AssetsUpload": {
-          "type": "string"
-        },
         "AssetsUploadAddress": {
           "type": "string"
         },
