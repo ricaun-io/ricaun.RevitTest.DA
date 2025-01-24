@@ -158,7 +158,14 @@ namespace ricaun.DA4R.NUnit.Console
             {
                 Language = revitLanguage,
                 Input = zipFileTemporary.ZipFilePath,
+                AccessToken = App.ApsAccessToken,
             };
+
+            if (!string.IsNullOrEmpty(option.AccessToken))
+            {
+                Log.WriteLine($"AccessToken: ***");
+                Log.WriteLine("-------------------------------------");
+            }
 
             var result = await designAutomationService.Run<ParameterOptions>(option);
 

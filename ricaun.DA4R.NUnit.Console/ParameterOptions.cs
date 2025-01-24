@@ -15,5 +15,8 @@ namespace ricaun.DA4R.NUnit.Console
 
         [ParameterActivityLanguage]
         public string Language { get; set; }
+
+        [ParameterWorkItem3LeggedToken]
+        internal string AccessToken { get; set; }
     }
 }
