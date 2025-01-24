@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Application
 - Add `ricaun.Revit.DA` to support multi-version and AddInContext.
 ### Consoles
-- Update `ricaun.Autodesk.Forge.Oss.DesignAutomation` to `3.1.0-*`.
+- Update `ricaun.Autodesk.Forge.Oss.DesignAutomation` to `3.1.0`.
 - Add `AccessToken` to pass the `adsk3LeggedToken` in DA4R.
 - Add `AspUserInfoUtils` to get Autodesk user info using `AccessToken`.
 - Remove local environment variables.

@@ -96,7 +96,7 @@
 
   <ItemGroup>
     <PackageReference Include="ricaun.NUnit" Version="*" />
-    <PackageReference Include="ricaun.Revit.DA" Version="*-*" />
+    <PackageReference Include="ricaun.Revit.DA" Version="*" />
   </ItemGroup>
 
   <ItemGroup>
