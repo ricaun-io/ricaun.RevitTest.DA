@@ -149,10 +149,20 @@ namespace ricaun.DA4R.NUnit.Console
                 AccessToken = App.ApsAccessToken,
             };
 
-            // Validate Autodesk AccessToken
+            // Validate Autodesk AccessToken by getting UserInfo
             if (!string.IsNullOrEmpty(option.AccessToken))
             {
                 Log.WriteLine($"AccessToken: ***");
+                try
+                {
+                    var userInfo = await AspUserInfoUtils.GetUserInfo(option.AccessToken);
+                    Log.WriteLine($"UserInfo: {userInfo}");
+                }
+                catch (Exception ex)
+                {
+                    Log.WriteLine($"UserInfo.Exception: {ex.Message}");
+                    option.AccessToken = null;
+                }
                 Log.WriteLine("-------------------------------------");
             }
 
