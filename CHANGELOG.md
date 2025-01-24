@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Remove local environment variables.
 ### Tests
 - Add `UserIdTests` to test `adsk3LeggedToken` in DA4R.
+- Add `.runsettings` with `APS_ACCESS_TOKEN` configuration.
 
 ## [2.2.1] / 2024-12-11
 ### Features

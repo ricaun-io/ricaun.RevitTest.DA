@@ -104,4 +104,13 @@
     <Page Remove="UI\**" />
   </ItemGroup>-->
 
+  <PropertyGroup Condition="$(Configuration.Contains('Debug'))">
+    <RunSettingsFilePath>$(MSBuildProjectDirectory)\.runsettings</RunSettingsFilePath>
+  </PropertyGroup>
+  <ItemGroup Condition="$(Configuration.Contains('Debug'))">
+    <None Update=".runsettings">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

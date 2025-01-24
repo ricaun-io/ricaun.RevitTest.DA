@@ -142,6 +142,20 @@ namespace ricaun.DA4R.NUnit.Console
             Log.WriteLine($"Oss.DesignAutomation: {typeof(IDesignAutomationService).Assembly.GetName().Version.ToString(3)}");
             Log.WriteLine("-------------------------------------");
 
+            var option = new ParameterOptions()
+            {
+                Language = revitLanguage,
+                Input = zipFileTemporary.ZipFilePath,
+                AccessToken = App.ApsAccessToken,
+            };
+
+            // Validate Autodesk AccessToken
+            if (!string.IsNullOrEmpty(option.AccessToken))
+            {
+                Log.WriteLine($"AccessToken: ***");
+                Log.WriteLine("-------------------------------------");
+            }
+
             IDesignAutomationService designAutomationService = new RevitDesignAutomationService(App.Name)
             {
                 EngineVersions = new[] { revitVersionNumber.ToString() },
@@ -153,19 +167,6 @@ namespace ricaun.DA4R.NUnit.Console
             };
 
             await designAutomationService.Initialize(App.Bundle);
-
-            var option = new ParameterOptions()
-            {
-                Language = revitLanguage,
-                Input = zipFileTemporary.ZipFilePath,
-                AccessToken = App.ApsAccessToken,
-            };
-
-            if (!string.IsNullOrEmpty(option.AccessToken))
-            {
-                Log.WriteLine($"AccessToken: ***");
-                Log.WriteLine("-------------------------------------");
-            }
 
             var result = await designAutomationService.Run<ParameterOptions>(option);
 
