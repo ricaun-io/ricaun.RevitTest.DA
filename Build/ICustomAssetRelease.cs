@@ -5,6 +5,7 @@ using Nuke.Common.Utilities.Collections;
 using ricaun.Nuke.Extensions;
 using ricaun.Nuke.IO;
 using System;
+using System.Linq;
 
 /// <summary>
 /// ICustomAssetRelease
@@ -32,6 +33,11 @@ public interface ICustomAssetRelease : IHazRelease, IRelease, INukeBuild, IHazAs
         Serilog.Log.Information($"Upload File: {file.Name}");
         if (AssetsUploadAddress.SkipEmpty())
         {
+            if (!MatchesFilter(file))
+            {
+                Serilog.Log.Information($"Upload File Skipped: {file.Name} does not match filter.");
+                return;
+            }
             try
             {
                 var result = HttpAuthTasks.HttpPostFile(AssetsUploadAddress, file, AssetsUploadAuthorization);
@@ -46,6 +52,12 @@ public interface ICustomAssetRelease : IHazRelease, IRelease, INukeBuild, IHazAs
         }
 
         Serilog.Log.Warning($"Upload File Skipped: AssetsUploadAddress empty.");
+    }
+
+    private bool MatchesFilter(AbsolutePath file)
+    {
+        var filters = AssetsUploadFilter.Split(';');
+        return filters.Any(filter => file.Name.EndsWith(filter.Trim('*')));
     }
 }
 

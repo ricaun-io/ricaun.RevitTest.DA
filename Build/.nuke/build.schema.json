@@ -141,8 +141,7 @@
         "GitRelease",
         "PackageBuilder",
         "Release",
-        "Sign",
-        "TestConsole"
+        "Sign"
       ]
     },
     "Verbosity": {
