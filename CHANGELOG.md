@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Consoles
 - Update `ricaun.Autodesk.Forge.Oss.DesignAutomation` to `3.0.0`.
 - Remove local environment variables.
+### Tests
+- Add `UserIdTests` to test `adsk3LeggedToken` in DA4R.
 
 ## [2.2.1] / 2024-12-11
 ### Features

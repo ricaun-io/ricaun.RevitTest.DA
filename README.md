@@ -65,12 +65,12 @@ ricaun.DA4R.NUnit.Console.exe --file "C:\Users\ricau\Downloads\SampleTest\RevitA
 
 ### Configuration
 
-By default the Forge credentials could be defined with the following environment variables:
+By default the Aps/Forge credentials could be defined with the following environment variables:
 
 ```bash
-FORGE_CLIENT_ID=<your client id>
-FORGE_CLIENT_SECRET=<your client secret>
-FORGE_CLIENT_CUSTOM_HEADER_VALUE=<your custom header value>
+APS_CLIENT_ID=<your client id>
+APS_CLIENT_SECRET=<your client secret>
+APS_CLIENT_CUSTOM_HEADER_VALUE=<your custom header value>
 ```
 
 ## Release
