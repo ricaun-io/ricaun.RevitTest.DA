@@ -2,6 +2,7 @@
 using Autodesk.Forge.Oss.DesignAutomation.Services;
 using ricaun.DA4R.NUnit.Console.Utils;
 using ricaun.NUnit;
+using ricaun.NUnit.Models;
 using ricaun.Revit.Installation;
 using ricaun.RevitTest.Command;
 using ricaun.RevitTest.Command.Extensions;
