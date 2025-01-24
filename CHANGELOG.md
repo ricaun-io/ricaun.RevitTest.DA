@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [3.0.0] / 2024-12-11 - 2025-01-19
 ### Features
 - Remove version `2018` support.
+### Application
+- Add `ricaun.Revit.DA` to support multi-version and AddInContext.
 ### Consoles
 - Update `ricaun.Autodesk.Forge.Oss.DesignAutomation` to `3.0.0`.
 - Remove local environment variables.
