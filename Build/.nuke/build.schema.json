@@ -215,6 +215,18 @@
   "allOf": [
     {
       "properties": {
+        "AssetsUploadAddress": {
+          "type": "string"
+        },
+        "AssetsUploadAuthorization": {
+          "type": "string"
+        },
+        "AssetsUploadFilter": {
+          "type": "string"
+        },
+        "EnableForkedRepository": {
+          "type": "boolean"
+        },
         "Folder": {
           "type": "string"
         },

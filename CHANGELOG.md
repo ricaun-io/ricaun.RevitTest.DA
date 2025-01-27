@@ -4,11 +4,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] / 2024-12-11 - 2025-01-27
+### Features
+- Remove version `2018` support.
+### Application
+- Add `ricaun.Revit.DA` to support multi-version and AddInContext.
+### Consoles
+- Update `ricaun.Autodesk.Forge.Oss.DesignAutomation` to `3.1.0`.
+- Add `AccessToken` to pass the `adsk3LeggedToken` in DA4R.
+- Add `AspUserInfoUtils` to get Autodesk user info using `AccessToken`.
+- Remove local environment variables.
+### Tests
+- Add `UserIdTests` to test `adsk3LeggedToken` in DA4R.
+- Add `.runsettings` with `APS_ACCESS_TOKEN` configuration.
+
 ## [2.2.1] / 2024-12-11
 ### Features
-- Update enviroment variables to support `APS` or `FORGE`.
+- Update environment variables to support `APS` or `FORGE`.
 ### Console
-- Update `App` with enviroment variables.
+- Update `App` with environment variables.
 - Add `APS_CLIENT_ID`, `APS_CLIENT_SECRET`, `APS_CLIENT_CUSTOM_HEADER_VALUE`
 
 ## [2.2.0] / 2024-12-11
@@ -154,6 +168,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TestAssembly in `*.zip` and `output.json`
 
 [vNext]: ../../compare/1.0.0...HEAD
+[3.0.0]: ../../compare/2.2.1...3.0.0
 [2.2.1]: ../../compare/2.2.0...2.2.1
 [2.2.0]: ../../compare/2.1.0...2.2.0
 [2.1.0]: ../../compare/2.0.0...2.1.0

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ricaun.NUnit.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 

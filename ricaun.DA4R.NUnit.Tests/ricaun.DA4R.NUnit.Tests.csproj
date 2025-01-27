@@ -13,19 +13,11 @@
 
   <!-- RevitVersion -->
   <PropertyGroup>
-    <!--
-    <TargetFrameworks>net8.0-windows</TargetFrameworks>
-    -->
-    <TargetFrameworks>net48;net8.0-windows</TargetFrameworks>
+    <TargetFrameworks>net47;net48;net8.0-windows</TargetFrameworks>
     <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
   </PropertyGroup>
   <Choose>
-    <When Condition="$(TargetFramework.StartsWith('net46'))">
-      <PropertyGroup>
-        <RevitVersion>2017</RevitVersion>
-      </PropertyGroup>
-    </When>
     <When Condition="$(TargetFramework.StartsWith('net47'))">
       <PropertyGroup>
         <RevitVersion>2019</RevitVersion>
@@ -73,6 +65,10 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="RevitVersion.DefineConstants" Version="*-*" />
+  </ItemGroup>
+
   <!--<ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
     <Reference Include="ricaun.RevitTest.TestAdapter">
       <HintPath>..\..\..\..\Documents\GitHub\ricaun-io\ricaun.RevitTest\ricaun.RevitTest.TestAdapter\bin\Release\net45\ricaun.RevitTest.TestAdapter.dll</HintPath>
@@ -107,5 +103,14 @@
     <None Remove="UI\**" />
     <Page Remove="UI\**" />
   </ItemGroup>-->
+
+  <PropertyGroup Condition="$(Configuration.Contains('Debug'))">
+    <RunSettingsFilePath>$(MSBuildProjectDirectory)\.runsettings</RunSettingsFilePath>
+  </PropertyGroup>
+  <ItemGroup Condition="$(Configuration.Contains('Debug'))">
+    <None Update=".runsettings">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 
 </Project>

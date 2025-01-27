@@ -2,6 +2,7 @@
 using Autodesk.Forge.Oss.DesignAutomation.Services;
 using ricaun.DA4R.NUnit.Console.Utils;
 using ricaun.NUnit;
+using ricaun.NUnit.Models;
 using ricaun.Revit.Installation;
 using ricaun.RevitTest.Command;
 using ricaun.RevitTest.Command.Extensions;
@@ -15,7 +16,7 @@ namespace ricaun.DA4R.NUnit.Console
 {
     public class DA4RTestService : IRunTestService
     {
-        private const int MINIMAL_ENGINE_VERSION = 2018;
+        private const int MINIMAL_ENGINE_VERSION = 2019;
         private const int TIMEOUT_MINUTES = 10;
 
         private void LogApplicationInfo()
@@ -141,13 +142,31 @@ namespace ricaun.DA4R.NUnit.Console
             Log.WriteLine($"Oss.DesignAutomation: {typeof(IDesignAutomationService).Assembly.GetName().Version.ToString(3)}");
             Log.WriteLine("-------------------------------------");
 
-            var forgeConfiguration = new Autodesk.Forge.Core.ForgeConfiguration()
+            var option = new ParameterOptions()
             {
-                ClientId = App.ForgeClientId,
-                ClientSecret = App.ForgeClientSecret,
+                Language = revitLanguage,
+                Input = zipFileTemporary.ZipFilePath,
+                AccessToken = App.ApsAccessToken,
             };
 
-            IDesignAutomationService designAutomationService = new RevitDesignAutomationService(App.Name, forgeConfiguration)
+            // Validate Autodesk AccessToken by getting UserInfo
+            if (!string.IsNullOrEmpty(option.AccessToken))
+            {
+                Log.WriteLine($"AccessToken: ***");
+                try
+                {
+                    var userInfo = await AspUserInfoUtils.GetUserInfo(option.AccessToken);
+                    Log.WriteLine($"UserInfo: {userInfo}");
+                }
+                catch (Exception ex)
+                {
+                    Log.WriteLine($"UserInfo.Exception: {ex.Message}");
+                    option.AccessToken = null;
+                }
+                Log.WriteLine("-------------------------------------");
+            }
+
+            IDesignAutomationService designAutomationService = new RevitDesignAutomationService(App.Name)
             {
                 EngineVersions = new[] { revitVersionNumber.ToString() },
                 EnableConsoleLogger = Log.Enabled,
@@ -155,16 +174,9 @@ namespace ricaun.DA4R.NUnit.Console
                 EnableReportConsoleLogger = Log.Enabled,
                 RunTimeOutMinutes = timeoutMinutes,
                 ForgeEnvironment = App.ForgeEnvironment,
-                CustomHeaderValue = App.ForgeClientCustomHeaderValue,
             };
 
             await designAutomationService.Initialize(App.Bundle);
-
-            var option = new ParameterOptions()
-            {
-                Language = revitLanguage,
-                Input = zipFileTemporary.ZipFilePath,
-            };
 
             var result = await designAutomationService.Run<ParameterOptions>(option);
 

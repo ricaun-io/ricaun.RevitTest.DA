@@ -1,12 +1,14 @@
 ﻿# ricaun.DA4R.NUnit
 
-Unit Test Framework for DA4R.
-
-[![Revit 2018](https://img.shields.io/badge/Revit-2018+-blue.svg)](../..)
+[![Revit 2019](https://img.shields.io/badge/Revit-2019+-blue.svg)](../..)
 [![Visual Studio 2022](https://img.shields.io/badge/Visual%20Studio-2022-blue)](../..)
 [![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Build](../../actions/workflows/Build.yml/badge.svg)](../../actions)
+
+Unit Test Framework for DA4R. 
+
+This project is design to work with the [ricaun.RevitTest](https://ricaun.com/RevitTest) test framework.
 
 ## DA4R
 
@@ -23,27 +25,6 @@ Unit Test Framework for DA4R.
 ├── input.zip
 │   ├── RevitAddin.Tests.dll
 │   └── nunit.framework.dll
-├── output.json
-└── ...
-```
-
-### Input (Multi-Version) / Output
-```
-├── ...
-├── input.zip
-│   ├── 2018
-│   │   ├── RevitAddin.Tests.dll
-│   │   └── nunit.framework.dll
-│   ├── 2019
-│   │   ├── RevitAddin.Tests.dll
-│   │   └── nunit.framework.dll
-│   ├── 2020
-│   │   ├── RevitAddin.Tests.dll
-│   │   └── nunit.framework.dll
-│   ├── 2021
-│   │   ├── RevitAddin.Tests.dll
-│   │   └── nunit.framework.dll
-│   └── ...
 ├── output.json
 └── ...
 ```
@@ -65,13 +46,22 @@ ricaun.DA4R.NUnit.Console.exe --file "C:\Users\ricau\Downloads\SampleTest\RevitA
 
 ### Configuration
 
-By default the Forge credentials could be defined with the following environment variables:
+By default the Aps/Forge credentials could be defined with the following environment variables:
 
 ```bash
-FORGE_CLIENT_ID=<your client id>
-FORGE_CLIENT_SECRET=<your client secret>
-FORGE_CLIENT_CUSTOM_HEADER_VALUE=<your custom header value>
+APS_CLIENT_ID=<your client id>
+APS_CLIENT_SECRET=<your client secret>
 ```
+
+#### Three-legged Token
+
+To use the three-legged token, you need to define the `APS_ACCESS_TOKEN` environment variable:
+
+```bash
+APS_ACCESS_TOKEN=<your access token>
+```
+
+The `APS_ACCESS_TOKEN` environment variable is used to pass the `adsk3LeggedToken` in DA4R. The token is tested to get the user information, if successful, the token is used in the DA4R.
 
 ## Release
 

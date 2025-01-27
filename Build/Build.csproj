@@ -10,12 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ricaun.Nuke.PackageBuilder" Version="*-*" />
+    <PackageReference Include="ricaun.Nuke.PackageBuilder" Version="*" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="..\.github\workflows\*.yml" LinkBase="ci" />
-    <None Include=".github\**\*"/>
-    <None Include=".nuke\*"/>
+    <None Include=".github\**\*" />
+    <None Include=".nuke\*" />
   </ItemGroup>
 </Project>
