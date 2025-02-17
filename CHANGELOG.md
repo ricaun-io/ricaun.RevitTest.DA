@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [3.1.0] / 2024-02-16
+### Features
+- Update `RevitTest` version to `1.9.0`. 
+### Tests
+- Add `RevitTestFixture` to test `TestFixture` in `ricaun.NUnit` version `1.5.0`.
+
 ## [3.0.0] / 2024-12-11 - 2025-01-27
 ### Features
 - Remove version `2018` support.
@@ -168,6 +174,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TestAssembly in `*.zip` and `output.json`
 
 [vNext]: ../../compare/1.0.0...HEAD
+[3.1.0]: ../../compare/3.0.0...3.1.0
 [3.0.0]: ../../compare/2.2.1...3.0.0
 [2.2.1]: ../../compare/2.2.0...2.2.1
 [2.2.0]: ../../compare/2.1.0...2.2.0
