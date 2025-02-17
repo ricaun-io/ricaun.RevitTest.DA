@@ -22,7 +22,7 @@ This project is design to work with the [ricaun.RevitTest](https://ricaun.com/Re
 
 ### Install in `ricaun.RevitTest`
 
-To install the `ricaun.DA4R.NUnit` in the `ricaun.RevitTest` project, you need to add the following metadata configuratio in your test project.
+To install the `ricaun.DA4R.NUnit` in the `ricaun.RevitTest` project, you need to add the following metadata configuration in your test project.
 
 ```C#
 [assembly: AssemblyMetadata("NUnit.Application", "https://github.com/ricaun-io/ricaun.DA4R.NUnit/releases/latest/download/ricaun.DA4R.NUnit.Console.zip")]
