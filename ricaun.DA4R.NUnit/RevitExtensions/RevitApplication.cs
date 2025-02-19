@@ -19,11 +19,6 @@
         /// UIControlledApplication
         /// </summary>
         public static UIControlledApplication UIControlledApplication { get; } = GetUIControlledApplication();
-        /// <summary>
-        /// IsInContext
-        /// </summary>
-        public static bool IsInContext => IsInRevitContext(UIApplication);
-
         #region Private
         private static UIControlledApplication GetUIControlledApplication()
         {
@@ -34,19 +29,6 @@
 
             return constructor?.Invoke(new object[] { UIApplication }) as UIControlledApplication;
         }
-        private static bool IsInRevitContext(UIApplication uiapp)
-        {
-            try
-            {
-                uiapp.Idling += UiApplication_Idling;
-                uiapp.Idling -= UiApplication_Idling;
-                return true;
-            }
-            catch { }
-            // Invalid call to Revit API! Revit is currently not within an API context.
-            return false;
-        }
-        private static void UiApplication_Idling(object sender, IdlingEventArgs e) { }
         #endregion
     }
 
