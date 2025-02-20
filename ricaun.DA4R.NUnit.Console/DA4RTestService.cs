@@ -181,7 +181,8 @@ namespace ricaun.DA4R.NUnit.Console
                 Log.WriteLine("-------------------------------------");
             }
 
-            var name = App.Name + "_"+ revitVersionNumber.ToString();
+            var id = System.Diagnostics.Process.GetCurrentProcess().Id;
+            var name = App.Name + "_" + id;
             IDesignAutomationService designAutomationService = new RevitDesignAutomationService(name)
             {
                 EngineVersions = new[] { revitVersionNumber.ToString() },
