@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [3.1.0] / 2024-02-16
 ### Features
 - Update `RevitTest` version to `1.9.0`. 
+### Console
+- Update `AppName` to include `Revit` version allow run at the same time.
 ### Tests
 - Add `RevitTestFixture` to test `TestFixture` in `ricaun.NUnit` version `1.5.0`.
 

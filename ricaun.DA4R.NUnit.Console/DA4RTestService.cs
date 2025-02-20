@@ -181,7 +181,8 @@ namespace ricaun.DA4R.NUnit.Console
                 Log.WriteLine("-------------------------------------");
             }
 
-            IDesignAutomationService designAutomationService = new RevitDesignAutomationService(App.Name)
+            var name = App.Name + "_"+ revitVersionNumber.ToString();
+            IDesignAutomationService designAutomationService = new RevitDesignAutomationService(name)
             {
                 EngineVersions = new[] { revitVersionNumber.ToString() },
                 EnableConsoleLogger = Log.Enabled,
