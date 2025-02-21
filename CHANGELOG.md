@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Update `RevitTest` version to `1.9.0`. 
 ### Console
 - Update `AppName` to include process `Id` to allow run multiple process.
+- Update `ricaun.Autodesk.Forge.Oss.DesignAutomation` to version `3.1.1`.
 ### Tests
 - Add `RevitTestFixture` to test `TestFixture` in `ricaun.NUnit` version `1.5.0`.
 
