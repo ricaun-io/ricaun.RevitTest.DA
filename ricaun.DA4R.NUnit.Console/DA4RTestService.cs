@@ -51,8 +51,21 @@ namespace ricaun.DA4R.NUnit.Console
             return baseTests;
         }
 
+        static int ConvertToRevitVersion(string revitVersion)
+        {
+            if (string.IsNullOrWhiteSpace(revitVersion))
+            {
+                return 0;
+            }
+            if (int.TryParse(revitVersion, out int revitVersionNumber))
+            {
+                return revitVersionNumber;
+            }
+            return 0;
+        }
+
         public bool RunTests(string fileToTest,
-            int revitVersionNumber,
+            string revitVersion,
             Action<string> actionOutput = null,
             string forceLanguageToRevit = null,
             bool forceToOpenNewRevit = false,
@@ -61,6 +74,8 @@ namespace ricaun.DA4R.NUnit.Console
             params string[] testFilters)
         {
             LogApplicationInfo();
+
+            var revitVersionNumber = ConvertToRevitVersion(revitVersion);
 
             if (revitVersionNumber == 0)
             {
@@ -166,7 +181,9 @@ namespace ricaun.DA4R.NUnit.Console
                 Log.WriteLine("-------------------------------------");
             }
 
-            IDesignAutomationService designAutomationService = new RevitDesignAutomationService(App.Name)
+            var id = System.Diagnostics.Process.GetCurrentProcess().Id;
+            var name = App.Name + "_" + id;
+            IDesignAutomationService designAutomationService = new RevitDesignAutomationService(name)
             {
                 EngineVersions = new[] { revitVersionNumber.ToString() },
                 EnableConsoleLogger = Log.Enabled,

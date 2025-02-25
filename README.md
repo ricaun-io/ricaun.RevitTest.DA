@@ -6,7 +6,7 @@
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Build](../../actions/workflows/Build.yml/badge.svg)](../../actions)
 
-Unit Test Framework for DA4R. 
+Unit Test Framework for DA4R.
 
 This project is design to work with the [ricaun.RevitTest](https://ricaun.com/RevitTest) test framework.
 
@@ -14,35 +14,23 @@ This project is design to work with the [ricaun.RevitTest](https://ricaun.com/Re
 
 ### Application
 * [ricaun.NUnit](https://github.com/ricaun-io/ricaun.NUnit)
+* [ricaun.Revit.DA](https://github.com/ricaun-io/ricaun.Revit.DA)
 ### Console
 * [ricaun.Revit.Installation](https://github.com/ricaun-io/ricaun.Revit.Installation)
 * [ricaun.RevitTest.Command](https://github.com/ricaun-io/ricaun.RevitTest)
 * [ricaun.Autodesk.Forge.Oss.DesignAutomation](https://github.com/ricaun-io/forge-api-dotnet-oss.design.automation)
 
-### Input / Output
-```
-├── ...
-├── input.zip
-│   ├── RevitAddin.Tests.dll
-│   └── nunit.framework.dll
-├── output.json
-└── ...
+### Install in `ricaun.RevitTest`
+
+To install the `ricaun.DA4R.NUnit` in the `ricaun.RevitTest` project, you need to add the following metadata configuration in your test project.
+
+```C#
+[assembly: AssemblyMetadata("NUnit.Application", "https://github.com/ricaun-io/ricaun.DA4R.NUnit/releases/latest/download/ricaun.DA4R.NUnit.Console.zip")]
 ```
 
-## Console
+This metadata will be used to download the `ricaun.DA4R.NUnit.Console.zip` and used in run the tests using the `ricaun.DA4R.NUnit` application.
 
-```
-ricaun.DA4R.NUnit.Console.exe --file "C:\Users\ricau\Downloads\SampleTest\RevitAddin.RevitApplication.Tests\2021\RevitAddin.RevitApplication.Tests.dll" -o "console" -l
-```
-
-### Test Language
-
-```
-.\ricaun.DA4R.NUnit.Console.exe --file "D:\Users\ricau\source\repos\RevitTest.Language\RevitTest.Language\bin\Debug\net45\RevitTest.Language.dll" -v 2021 -l -o "console" --language "en"
-.\ricaun.DA4R.NUnit.Console.exe --file "D:\Users\ricau\source\repos\RevitTest.Language\RevitTest.Language\bin\Debug\net45\RevitTest.Language.dll" -v 2021 -l -o "console" --language "pt"
-.\ricaun.DA4R.NUnit.Console.exe --file "D:\Users\ricau\source\repos\RevitTest.Language\RevitTest.Language\bin\Debug\net45\RevitTest.Language.dll" -v 2021 -l -o "console" --language "es"
-.\ricaun.DA4R.NUnit.Console.exe --file "D:\Users\ricau\source\repos\RevitTest.Language\RevitTest.Language\bin\Debug\net45\RevitTest.Language.dll" -v 2021 -l -o "console" --language "ru"
-```
+The `ricaun.DA4R.NUnit` application requires the configuration below with the Aps credentials.
 
 ### Configuration
 

@@ -61,25 +61,13 @@
 
   <ItemGroup>
     <PackageReference Include="NUnit" Version="3.13.3" />
-    <PackageReference Include="ricaun.RevitTest.TestAdapter" Version="*-*" />
+    <PackageReference Include="ricaun.RevitTest.TestAdapter" Version="*" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="RevitVersion.DefineConstants" Version="*-*" />
   </ItemGroup>
-
-  <!--<ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
-    <Reference Include="ricaun.RevitTest.TestAdapter">
-      <HintPath>..\..\..\..\Documents\GitHub\ricaun-io\ricaun.RevitTest\ricaun.RevitTest.TestAdapter\bin\Release\net45\ricaun.RevitTest.TestAdapter.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup Condition="!$(TargetFramework.StartsWith('net4'))">
-    <Reference Include="ricaun.RevitTest.TestAdapter">
-      <HintPath>..\..\..\..\Documents\GitHub\ricaun-io\ricaun.RevitTest\ricaun.RevitTest.TestAdapter\bin\Release\net8\ricaun.RevitTest.TestAdapter.dll</HintPath>
-    </Reference>
-  </ItemGroup>-->
 
   <ItemGroup>
     <PackageReference Include="Revit_All_Main_Versions_API_x64" Version="$(RevitVersion).*" IncludeAssets="build; compile" PrivateAssets="All" />
