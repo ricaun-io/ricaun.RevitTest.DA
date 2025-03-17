@@ -1,10 +1,10 @@
 ﻿# ricaun.RevitTest.DA
 
-[![Revit 2019](https://img.shields.io/badge/Revit-2019+-blue.svg)](../..)
-[![Visual Studio 2022](https://img.shields.io/badge/Visual%20Studio-2022-blue)](../..)
+[![Revit 2019](https://img.shields.io/badge/Revit-2019+-blue.svg)](https://github.com/ricaun-io/ricaun.RevitTest.DA)
+[![Visual Studio 2022](https://img.shields.io/badge/Visual%20Studio-2022-blue)](https://github.com/ricaun-io/ricaun.RevitTest.DA)
 [![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Build](../../actions/workflows/Build.yml/badge.svg)](../../actions)
+[![Build](https://github.com/ricaun-io/ricaun.RevitTest.DA/actions/workflows/Build.yml/badge.svg)](https://github.com/ricaun-io/ricaun.RevitTest.DA/actions)
 
 Run Revit tests using the Design Automation for Revit.
 
@@ -41,6 +41,8 @@ APS_CLIENT_ID=<your client id>
 APS_CLIENT_SECRET=<your client secret>
 ```
 
+To create a new application in the Autodesk Platform Service, check the [Autodesk](https://aps.autodesk.com/) website. The application needs to have API Access to `Design Automation API` and `Data Management API`.
+
 #### Three-legged Token
 
 To use the three-legged token, you need to define the `APS_ACCESS_TOKEN` environment variable:
@@ -63,7 +65,7 @@ The `APS_ACCESS_TOKEN` environment variable is used to pass the `adsk3LeggedToke
 
 ## Release
 
-* [Latest release](../../releases/latest)
+* [Latest release](https://github.com/ricaun-io/ricaun.RevitTest.DA/releases/latest)
 
 ## License
 
@@ -71,4 +73,4 @@ This project is [licensed](LICENSE) under the [MIT License](https://en.wikipedia
 
 ---
 
-Do you like this project? Please [star this project on GitHub](../../stargazers)!
+Do you like this project? Please [star this project on GitHub](https://github.com/ricaun-io/ricaun.RevitTest.DA/stargazers)!
