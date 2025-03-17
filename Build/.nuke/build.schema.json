@@ -241,9 +241,6 @@
         "IssConfiguration": {
           "$ref": "#/definitions/IssConfiguration"
         },
-        "MainName": {
-          "type": "string"
-        },
         "MiddleVersions": {
           "type": "boolean"
         },

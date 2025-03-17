@@ -1,36 +1,38 @@
-﻿# ricaun.DA4R.NUnit
+﻿# ricaun.RevitTest.DA
 
-[![Revit 2019](https://img.shields.io/badge/Revit-2019+-blue.svg)](../..)
-[![Visual Studio 2022](https://img.shields.io/badge/Visual%20Studio-2022-blue)](../..)
+[![Revit 2019](https://img.shields.io/badge/Revit-2019+-blue.svg)](https://github.com/ricaun-io/ricaun.RevitTest.DA)
+[![Visual Studio 2022](https://img.shields.io/badge/Visual%20Studio-2022-blue)](https://github.com/ricaun-io/ricaun.RevitTest.DA)
 [![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Build](../../actions/workflows/Build.yml/badge.svg)](../../actions)
+[![Build](https://github.com/ricaun-io/ricaun.RevitTest.DA/actions/workflows/Build.yml/badge.svg)](https://github.com/ricaun-io/ricaun.RevitTest.DA/actions)
 
-Unit Test Framework for DA4R.
+[![ricaun.RevitTest.DA](https://raw.githubusercontent.com/ricaun/test-assets/main/assets/ricaun.RevitTest.DA.png)](https://github.com/ricaun-io/ricaun.RevitTest.DA)
+
+`ricaun.RevitTest.DA` is a multi-version NUnit testing framework for Revit API using Design Automation.
 
 This project is design to work with the [ricaun.RevitTest](https://ricaun.com/RevitTest) test framework.
 
-## DA4R
+## Samples
 
-### Application
-* [ricaun.NUnit](https://github.com/ricaun-io/ricaun.NUnit)
-* [ricaun.Revit.DA](https://github.com/ricaun-io/ricaun.Revit.DA)
-### Console
-* [ricaun.Revit.Installation](https://github.com/ricaun-io/ricaun.Revit.Installation)
-* [ricaun.RevitTest.Command](https://github.com/ricaun-io/ricaun.RevitTest)
-* [ricaun.Autodesk.Forge.Oss.DesignAutomation](https://github.com/ricaun-io/forge-api-dotnet-oss.design.automation)
+* [RevitTest.DA.Sample](https://github.com/ricaun-io/RevitTest.DA)
 
-### Install in `ricaun.RevitTest`
+### Install in `ricaun.RevitTest.TestAdapter`
 
-To install the `ricaun.DA4R.NUnit` in the `ricaun.RevitTest` project, you need to add the following metadata configuration in your test project.
+To install the `ricaun.RevitTest.DA` in the `ricaun.RevitTest.TestAdapter` project, you need to add the following metadata configuration in your test project.
 
 ```C#
-[assembly: AssemblyMetadata("NUnit.Application", "https://github.com/ricaun-io/ricaun.DA4R.NUnit/releases/latest/download/ricaun.DA4R.NUnit.Console.zip")]
+[assembly: AssemblyMetadata("NUnit.Application", "https://github.com/ricaun-io/ricaun.RevitTest.DA/releases/latest/download/ricaun.RevitTest.DA.Console.zip")]
 ```
 
-This metadata will be used to download the `ricaun.DA4R.NUnit.Console.zip` and used in run the tests using the `ricaun.DA4R.NUnit` application.
+Or using the `RICAUN_REVITTEST_TESTADAPTER_NUNIT_APPLICATION` environment variable.
 
-The `ricaun.DA4R.NUnit` application requires the configuration below with the Aps credentials.
+```
+RICAUN_REVITTEST_TESTADAPTER_NUNIT_APPLICATION=https://github.com/ricaun-io/ricaun.RevitTest.DA/releases/latest/download/ricaun.RevitTest.DA.Console.zip
+```
+
+This metadata will be used to download the `ricaun.RevitTest.DA.Console.zip` and used in run the tests using the `ricaun.RevitTest.DA` application.
+
+The `ricaun.RevitTest.DA` application requires the configuration below with the Aps credentials.
 
 ### Configuration
 
@@ -40,6 +42,8 @@ By default the Aps/Forge credentials could be defined with the following environ
 APS_CLIENT_ID=<your client id>
 APS_CLIENT_SECRET=<your client secret>
 ```
+
+To create a new application in the Autodesk Platform Service, check the [Autodesk](https://aps.autodesk.com/) website. The application needs to have API Access to `Design Automation API` and `Data Management API`.
 
 #### Three-legged Token
 
@@ -51,9 +55,19 @@ APS_ACCESS_TOKEN=<your access token>
 
 The `APS_ACCESS_TOKEN` environment variable is used to pass the `adsk3LeggedToken` in DA4R. The token is tested to get the user information, if successful, the token is used in the DA4R.
 
+## Dependencies
+
+### Application
+* [ricaun.NUnit](https://github.com/ricaun-io/ricaun.NUnit)
+* [ricaun.Revit.DA](https://github.com/ricaun-io/ricaun.Revit.DA)
+### Console
+* [ricaun.Revit.Installation](https://github.com/ricaun-io/ricaun.Revit.Installation)
+* [ricaun.RevitTest.Command](https://github.com/ricaun-io/ricaun.RevitTest)
+* [ricaun.Autodesk.Forge.Oss.DesignAutomation](https://github.com/ricaun-io/forge-api-dotnet-oss.design.automation)
+
 ## Release
 
-* [Latest release](../../releases/latest)
+* [Latest release](https://github.com/ricaun-io/ricaun.RevitTest.DA/releases/latest)
 
 ## License
 
@@ -61,4 +75,4 @@ This project is [licensed](LICENSE) under the [MIT License](https://en.wikipedia
 
 ---
 
-Do you like this project? Please [star this project on GitHub](../../stargazers)!
+Do you like this project? Please [star this project on GitHub](https://github.com/ricaun-io/ricaun.RevitTest.DA/stargazers)!
