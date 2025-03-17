@@ -6,7 +6,9 @@
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Build](https://github.com/ricaun-io/ricaun.RevitTest.DA/actions/workflows/Build.yml/badge.svg)](https://github.com/ricaun-io/ricaun.RevitTest.DA/actions)
 
-Run Revit tests using the Design Automation for Revit.
+[![ricaun.RevitTest.DA](https://raw.githubusercontent.com/ricaun/test-assets/main/assets/ricaun.RevitTest.DA.png)](https://github.com/ricaun-io/ricaun.RevitTest.DA)
+
+`ricaun.RevitTest.DA` is a multi-version NUnit testing framework for Revit API using Design Automation.
 
 This project is design to work with the [ricaun.RevitTest](https://ricaun.com/RevitTest) test framework.
 
