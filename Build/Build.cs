@@ -7,6 +7,7 @@ class Build : NukeBuild, IPublishRevit, IBuildConsole, IGitPreRelease, ICustomAs
 {
     string IHazRevitPackageBuilder.ApplicationType => "DBApplication";
     string IHazRevitPackageBuilder.Application => "Revit.App";
+    string IHazMainProject.MainName => "ricaun.RevitTest.DA.Application";
     bool IHazPackageBuilderProject.ReleasePackageBuilder => false;
     public static int Main() => Execute<Build>(x => x.From<IPublishRevit>().Build);
 }

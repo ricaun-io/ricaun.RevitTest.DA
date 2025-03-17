@@ -11,7 +11,7 @@ public interface IBuildConsole : IHazExample, IRevitPackageBuilder
         .Before(Release)
         .Executes(() =>
         {
-            var project = Solution.GetOtherProject("ricaun.DA4R.NUnit.Console");
+            var project = Solution.GetOtherProject("ricaun.RevitTest.DA.Console");
 
             var releaseDirectory = GetReleaseDirectory(MainProject);
             Globbing.GlobFiles(releaseDirectory, "**/*.bundle.zip")
