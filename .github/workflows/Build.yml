@@ -32,9 +32,6 @@ jobs:
           SignPassword: ${{ secrets.SIGN_PASSWORD }}
           InstallationFiles: ${{ secrets.INSTALLATION_FILES }}
 
-          AssetsUploadAddress: ${{ secrets.RICAUN_ASSETS_UPLOAD_ADDRESS }}
-          AssetsUploadAuthorization: ${{ secrets.RICAUN_ASSETS_UPLOAD_AUTHORIZATION }}
-
       - name: Upload Artifact Test Results
         uses: actions/upload-artifact@v4
         with:
